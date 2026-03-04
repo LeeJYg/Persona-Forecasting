@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P034",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "A single gig worker living in the heart of the city, she appreciates the convenience of quick trips to Walmart for household items and groceries she needs between jobs.",
+    "weekly_budget": 150.0,
+    "snap_eligible": false,
+    "shopping_motivation": "routine replenishment",
+    "economic_status": "middle-income",
+    "category_preference": {
+      "FOODS": 0.4,
+      "HOBBIES": 0.1,
+      "HOUSEHOLD": 0.5
+    },
+    "price_sensitivity": "medium",
+    "visit_frequency": "weekly",
+    "preferred_departments": [
+      "HOUSEHOLD_1",
+      "FOODS_1"
+    ],
+    "decision_style": "habitual",
+    "brand_loyalty": "medium",
+    "promotion_sensitivity": "medium"
+  },
+  "purchase_history": []
+}

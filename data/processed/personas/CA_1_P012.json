@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P012",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "An urban professional frequently buzzing through the store, picking up essentials for convenient weeknight dinners. Quick to add value packs when on display, she navigates through aisles with purpose.",
+    "weekly_budget": 120.0,
+    "snap_eligible": false,
+    "shopping_motivation": "convenience fill-in",
+    "economic_status": "lower-middle",
+    "category_preference": {
+      "FOODS": 0.6,
+      "HOBBIES": 0.2,
+      "HOUSEHOLD": 0.2
+    },
+    "price_sensitivity": "medium",
+    "visit_frequency": "2-3 times/week",
+    "preferred_departments": [
+      "FOODS_1",
+      "HOUSEHOLD_2"
+    ],
+    "decision_style": "deal_seeker",
+    "brand_loyalty": "medium",
+    "promotion_sensitivity": "high"
+  },
+  "purchase_history": []
+}

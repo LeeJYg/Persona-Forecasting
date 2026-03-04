@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P026",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "A financially savvy young professional, he strategically plans his Walmart runs around deals, maximizing savings while enjoying the thrill of snagging great bargains.",
+    "weekly_budget": 290.0,
+    "snap_eligible": false,
+    "shopping_motivation": "deal hunting",
+    "economic_status": "upper-middle",
+    "category_preference": {
+      "FOODS": 0.4,
+      "HOBBIES": 0.3,
+      "HOUSEHOLD": 0.3
+    },
+    "price_sensitivity": "high",
+    "visit_frequency": "weekly",
+    "preferred_departments": [
+      "FOODS_2",
+      "HOBBIES_1"
+    ],
+    "decision_style": "deal_seeker",
+    "brand_loyalty": "low",
+    "promotion_sensitivity": "high"
+  },
+  "purchase_history": []
+}

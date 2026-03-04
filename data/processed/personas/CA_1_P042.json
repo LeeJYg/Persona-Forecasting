@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P042",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "Benjamin is a tech-savvy urban professional always on the lookout for innovative gadgets and quality ingredients for his meal-prep routines. He’s willing to splurge on premium items if they align with his values.",
+    "weekly_budget": 260.0,
+    "snap_eligible": false,
+    "shopping_motivation": "health & wellness focus",
+    "economic_status": "discretionary spender",
+    "category_preference": {
+      "FOODS": 0.7,
+      "HOBBIES": 0.2,
+      "HOUSEHOLD": 0.1
+    },
+    "price_sensitivity": "low",
+    "visit_frequency": "weekly",
+    "preferred_departments": [
+      "FOODS_2",
+      "HOBBIES_1"
+    ],
+    "decision_style": "planned",
+    "brand_loyalty": "high",
+    "promotion_sensitivity": "medium"
+  },
+  "purchase_history": []
+}

@@ -1,0 +1,35 @@
+# 환경 변수 (API 키 등 - 절대 커밋 금지)
+.env
+.env.*
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# 로그
+logs/
+
+# 대용량 데이터 (원본 M5 데이터셋 - git 추적 제외)
+m5-forecasting-accuracy/
+
+# 대용량 전처리 파일 (재생성 가능)
+data/processed/cold_start/warm_train.csv
+data/processed/cold_start/warm_test.csv
+data/processed/m5_train.csv
+data/processed/m5_test.csv
+data/processed/m5_sales_long.csv
+
+# 기존 실험용 합성 페르소나 (구버전)
+data/processed/synthetic_personas/
+data/processed/synthetic_personas_multimodal/

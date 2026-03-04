@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P023",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "A busy mom and urban professional on a tight schedule, she cherishes her Sunday afternoon trip to Walmart where she ensures the household is fully stocked for the week.",
+    "weekly_budget": 170.0,
+    "snap_eligible": false,
+    "shopping_motivation": "stock-up trip",
+    "economic_status": "middle-income",
+    "category_preference": {
+      "FOODS": 0.5,
+      "HOBBIES": 0.1,
+      "HOUSEHOLD": 0.4
+    },
+    "price_sensitivity": "medium",
+    "visit_frequency": "weekly",
+    "preferred_departments": [
+      "HOUSEHOLD_1",
+      "FOODS_2"
+    ],
+    "decision_style": "planned",
+    "brand_loyalty": "high",
+    "promotion_sensitivity": "medium"
+  },
+  "purchase_history": []
+}

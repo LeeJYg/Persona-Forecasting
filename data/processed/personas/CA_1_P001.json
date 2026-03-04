@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P001",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "A college student who thrives on spontaneity, often stopping by after classes to see what's new in the aisles. Her purchases are driven by curiosity rather than necessity.",
+    "weekly_budget": 75.0,
+    "snap_eligible": true,
+    "shopping_motivation": "impulse browsing",
+    "economic_status": "budget-constrained",
+    "category_preference": {
+      "FOODS": 0.6,
+      "HOBBIES": 0.2,
+      "HOUSEHOLD": 0.2
+    },
+    "price_sensitivity": "medium",
+    "visit_frequency": "2-3 times/week",
+    "preferred_departments": [
+      "FOODS_1",
+      "HOBBIES_2"
+    ],
+    "decision_style": "impulsive",
+    "brand_loyalty": "low",
+    "promotion_sensitivity": "medium"
+  },
+  "purchase_history": []
+}

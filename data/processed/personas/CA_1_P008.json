@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P008",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "With newfound freedom post-retirement, she enjoys leisurely visits to discover unique finds for her art projects, indulging her creative side.",
+    "weekly_budget": 90.0,
+    "snap_eligible": false,
+    "shopping_motivation": "special occasion",
+    "economic_status": "lower-middle",
+    "category_preference": {
+      "FOODS": 0.3,
+      "HOBBIES": 0.5,
+      "HOUSEHOLD": 0.2
+    },
+    "price_sensitivity": "medium",
+    "visit_frequency": "weekly",
+    "preferred_departments": [
+      "HOBBIES_1",
+      "HOUSEHOLD_1"
+    ],
+    "decision_style": "impulsive",
+    "brand_loyalty": "low",
+    "promotion_sensitivity": "medium"
+  },
+  "purchase_history": []
+}

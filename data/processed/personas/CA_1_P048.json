@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P048",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "Isaac is a gig worker always on the go. Quick stops for fuel and food ensure he can continue working efficiently. He often speeds through the aisles, picking up just enough to get by.",
+    "weekly_budget": 70.0,
+    "snap_eligible": true,
+    "shopping_motivation": "impulse browsing",
+    "economic_status": "budget-constrained",
+    "category_preference": {
+      "FOODS": 0.5,
+      "HOBBIES": 0.2,
+      "HOUSEHOLD": 0.3
+    },
+    "price_sensitivity": "high",
+    "visit_frequency": "daily",
+    "preferred_departments": [
+      "FOODS_2",
+      "HOUSEHOLD_1"
+    ],
+    "decision_style": "impulsive",
+    "brand_loyalty": "low",
+    "promotion_sensitivity": "high"
+  },
+  "purchase_history": []
+}

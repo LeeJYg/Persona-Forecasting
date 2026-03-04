@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P024",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "A tech-savvy urban single frequently on the lookout for the latest gadgets and smart home items, he finds browsing Walmart's electronics section thrilling.",
+    "weekly_budget": 220.0,
+    "snap_eligible": false,
+    "shopping_motivation": "impulse browsing",
+    "economic_status": "upper-middle",
+    "category_preference": {
+      "FOODS": 0.2,
+      "HOBBIES": 0.5,
+      "HOUSEHOLD": 0.3
+    },
+    "price_sensitivity": "low",
+    "visit_frequency": "bi-weekly",
+    "preferred_departments": [
+      "HOBBIES_2",
+      "HOUSEHOLD_2"
+    ],
+    "decision_style": "impulsive",
+    "brand_loyalty": "medium",
+    "promotion_sensitivity": "low"
+  },
+  "purchase_history": []
+}

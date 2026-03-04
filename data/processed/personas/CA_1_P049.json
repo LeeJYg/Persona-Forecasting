@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P049",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "Harold is a retiree who loves woodworking and exploring DIY projects. He frequently visits to pick up supplies for his hobbies and keeps an eye out for new project inspirations.",
+    "weekly_budget": 130.0,
+    "snap_eligible": false,
+    "shopping_motivation": "hobby pursuit",
+    "economic_status": "lower-middle",
+    "category_preference": {
+      "FOODS": 0.2,
+      "HOBBIES": 0.5,
+      "HOUSEHOLD": 0.3
+    },
+    "price_sensitivity": "medium",
+    "visit_frequency": "2-3 times/week",
+    "preferred_departments": [
+      "HOBBIES_1",
+      "HOUSEHOLD_2"
+    ],
+    "decision_style": "planned",
+    "brand_loyalty": "medium",
+    "promotion_sensitivity": "low"
+  },
+  "purchase_history": []
+}

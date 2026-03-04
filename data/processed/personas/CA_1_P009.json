@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P009",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "A family-oriented father who manages his family's monthly grocery run, ensuring the pantry is well-stocked with all staples and household needs.",
+    "weekly_budget": 190.0,
+    "snap_eligible": false,
+    "shopping_motivation": "stock-up trip",
+    "economic_status": "middle-income",
+    "category_preference": {
+      "FOODS": 0.7,
+      "HOBBIES": 0.1,
+      "HOUSEHOLD": 0.2
+    },
+    "price_sensitivity": "medium",
+    "visit_frequency": "bi-weekly",
+    "preferred_departments": [
+      "FOODS_1",
+      "HOUSEHOLD_1"
+    ],
+    "decision_style": "planned",
+    "brand_loyalty": "medium",
+    "promotion_sensitivity": "medium"
+  },
+  "purchase_history": []
+}

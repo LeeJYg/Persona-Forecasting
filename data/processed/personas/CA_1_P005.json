@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P005",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "A tech enthusiast in his late 20s, he frequently visits to pick up supplies for his electronics DIY projects, always on the lookout for the latest in hobby materials.",
+    "weekly_budget": 280.0,
+    "snap_eligible": false,
+    "shopping_motivation": "hobby pursuit",
+    "economic_status": "discretionary spender",
+    "category_preference": {
+      "FOODS": 0.2,
+      "HOBBIES": 0.6,
+      "HOUSEHOLD": 0.2
+    },
+    "price_sensitivity": "low",
+    "visit_frequency": "2-3 times/week",
+    "preferred_departments": [
+      "HOBBIES_1",
+      "HOBBIES_2"
+    ],
+    "decision_style": "planned",
+    "brand_loyalty": "medium",
+    "promotion_sensitivity": "low"
+  },
+  "purchase_history": []
+}

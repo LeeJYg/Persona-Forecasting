@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P040",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "A young couple starting their life together in the city, they enjoy exploring new recipes and products, visiting Walmart to stock up on essentials and try the latest culinary trends.",
+    "weekly_budget": 260.0,
+    "snap_eligible": false,
+    "shopping_motivation": "stock-up trip",
+    "economic_status": "discretionary spender",
+    "category_preference": {
+      "FOODS": 0.5,
+      "HOBBIES": 0.3,
+      "HOUSEHOLD": 0.2
+    },
+    "price_sensitivity": "low",
+    "visit_frequency": "weekly",
+    "preferred_departments": [
+      "FOODS_1",
+      "FOODS_3"
+    ],
+    "decision_style": "planned",
+    "brand_loyalty": "high",
+    "promotion_sensitivity": "low"
+  },
+  "purchase_history": []
+}

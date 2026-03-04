@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P018",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "A rural retiree with a passion for DIY projects, always seen inspecting the hobby supplies. Enjoys taking his time in-store, occasionally purchasing in bulk if he finds a good deal on materials.",
+    "weekly_budget": 110.0,
+    "snap_eligible": false,
+    "shopping_motivation": "impulse browsing",
+    "economic_status": "lower-middle",
+    "category_preference": {
+      "FOODS": 0.3,
+      "HOBBIES": 0.6,
+      "HOUSEHOLD": 0.1
+    },
+    "price_sensitivity": "medium",
+    "visit_frequency": "bi-weekly",
+    "preferred_departments": [
+      "HOBBIES_1",
+      "HOUSEHOLD_1"
+    ],
+    "decision_style": "habitual",
+    "brand_loyalty": "medium",
+    "promotion_sensitivity": "medium"
+  },
+  "purchase_history": []
+}

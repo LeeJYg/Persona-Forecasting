@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P031",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "As an urban professional in his late twenties, he often grabs quick meals and household necessities on his commute home, ensuring he has everything for the upcoming week. His busy schedule means he seeks efficient shopping solutions.",
+    "weekly_budget": 120.0,
+    "snap_eligible": false,
+    "shopping_motivation": "convenience fill-in",
+    "economic_status": "lower-middle",
+    "category_preference": {
+      "FOODS": 0.5,
+      "HOBBIES": 0.2,
+      "HOUSEHOLD": 0.3
+    },
+    "price_sensitivity": "medium",
+    "visit_frequency": "2-3 times/week",
+    "preferred_departments": [
+      "FOODS_1",
+      "HOUSEHOLD_1"
+    ],
+    "decision_style": "planned",
+    "brand_loyalty": "medium",
+    "promotion_sensitivity": "medium"
+  },
+  "purchase_history": []
+}

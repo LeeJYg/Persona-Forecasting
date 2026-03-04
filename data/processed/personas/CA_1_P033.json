@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P033",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "This young student balances coursework and part-time work. She visits Walmart bi-weekly for essentials, often picking up healthy snacks and supplies for her dorm room.",
+    "weekly_budget": 75.0,
+    "snap_eligible": true,
+    "shopping_motivation": "health & wellness focus",
+    "economic_status": "budget-constrained",
+    "category_preference": {
+      "FOODS": 0.6,
+      "HOBBIES": 0.1,
+      "HOUSEHOLD": 0.3
+    },
+    "price_sensitivity": "high",
+    "visit_frequency": "bi-weekly",
+    "preferred_departments": [
+      "FOODS_3",
+      "HOUSEHOLD_2"
+    ],
+    "decision_style": "planned",
+    "brand_loyalty": "medium",
+    "promotion_sensitivity": "high"
+  },
+  "purchase_history": []
+}

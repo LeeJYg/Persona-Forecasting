@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P011",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "A retired librarian who loves gardening finds serenity in carefully selecting gourmet ingredients for her homemade meals. She's known to indulge in premium produce and spends leisurely afternoons exploring food aisles.",
+    "weekly_budget": 190.0,
+    "snap_eligible": false,
+    "shopping_motivation": "health & wellness focus",
+    "economic_status": "upper-middle",
+    "category_preference": {
+      "FOODS": 0.7,
+      "HOBBIES": 0.15,
+      "HOUSEHOLD": 0.15
+    },
+    "price_sensitivity": "medium",
+    "visit_frequency": "bi-weekly",
+    "preferred_departments": [
+      "FOODS_2",
+      "HOUSEHOLD_1"
+    ],
+    "decision_style": "planned",
+    "brand_loyalty": "medium",
+    "promotion_sensitivity": "medium"
+  },
+  "purchase_history": []
+}

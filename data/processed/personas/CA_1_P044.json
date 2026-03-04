@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P044",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "Jason is a freelance artist living in a small town, frequently visiting the store to replenish his art supplies and household essentials. He enjoys browsing and often ends up buying extra materials for his projects.",
+    "weekly_budget": 180.0,
+    "snap_eligible": false,
+    "shopping_motivation": "hobby pursuit",
+    "economic_status": "upper-middle",
+    "category_preference": {
+      "FOODS": 0.3,
+      "HOBBIES": 0.5,
+      "HOUSEHOLD": 0.2
+    },
+    "price_sensitivity": "medium",
+    "visit_frequency": "weekly",
+    "preferred_departments": [
+      "HOBBIES_2",
+      "HOUSEHOLD_2"
+    ],
+    "decision_style": "impulsive",
+    "brand_loyalty": "low",
+    "promotion_sensitivity": "high"
+  },
+  "purchase_history": []
+}

@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P003",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "Retired and living leisurely, she often explores different parts of the store, especially interested in finding deals to make her fixed income last longer.",
+    "weekly_budget": 150.0,
+    "snap_eligible": false,
+    "shopping_motivation": "deal hunting",
+    "economic_status": "middle-income",
+    "category_preference": {
+      "FOODS": 0.7,
+      "HOBBIES": 0.1,
+      "HOUSEHOLD": 0.2
+    },
+    "price_sensitivity": "high",
+    "visit_frequency": "weekly",
+    "preferred_departments": [
+      "FOODS_2",
+      "HOUSEHOLD_2"
+    ],
+    "decision_style": "deal_seeker",
+    "brand_loyalty": "low",
+    "promotion_sensitivity": "high"
+  },
+  "purchase_history": []
+}

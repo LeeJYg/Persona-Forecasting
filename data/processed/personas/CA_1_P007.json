@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P007",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "A fitness enthusiast in her 30s, she prioritizes purchasing protein-rich foods and wellness products to support her active lifestyle, often exploring new health-oriented items.",
+    "weekly_budget": 200.0,
+    "snap_eligible": false,
+    "shopping_motivation": "health & wellness focus",
+    "economic_status": "middle-income",
+    "category_preference": {
+      "FOODS": 0.8,
+      "HOBBIES": 0.1,
+      "HOUSEHOLD": 0.1
+    },
+    "price_sensitivity": "medium",
+    "visit_frequency": "weekly",
+    "preferred_departments": [
+      "FOODS_1",
+      "FOODS_3"
+    ],
+    "decision_style": "planned",
+    "brand_loyalty": "high",
+    "promotion_sensitivity": "low"
+  },
+  "purchase_history": []
+}

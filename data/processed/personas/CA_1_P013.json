@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P013",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "A young student browsing the aisles with a keen eye for markdowns, grabbing unique snacks and kitchen supplies that fit her tight budget. Sales steer her choices.",
+    "weekly_budget": 50.0,
+    "snap_eligible": true,
+    "shopping_motivation": "deal hunting",
+    "economic_status": "budget-constrained",
+    "category_preference": {
+      "FOODS": 0.5,
+      "HOBBIES": 0.2,
+      "HOUSEHOLD": 0.3
+    },
+    "price_sensitivity": "high",
+    "visit_frequency": "weekly",
+    "preferred_departments": [
+      "FOODS_1",
+      "HOUSEHOLD_1"
+    ],
+    "decision_style": "deal_seeker",
+    "brand_loyalty": "low",
+    "promotion_sensitivity": "high"
+  },
+  "purchase_history": []
+}

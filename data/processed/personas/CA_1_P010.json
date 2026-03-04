@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P010",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "An energetic retiree who loves to throw parties and is always on the lookout for fun and festive items to make her gatherings more exciting.",
+    "weekly_budget": 160.0,
+    "snap_eligible": false,
+    "shopping_motivation": "special occasion",
+    "economic_status": "middle-income",
+    "category_preference": {
+      "FOODS": 0.4,
+      "HOBBIES": 0.5,
+      "HOUSEHOLD": 0.1
+    },
+    "price_sensitivity": "low",
+    "visit_frequency": "2-3 times/week",
+    "preferred_departments": [
+      "HOBBIES_2",
+      "FOODS_2"
+    ],
+    "decision_style": "impulsive",
+    "brand_loyalty": "low",
+    "promotion_sensitivity": "high"
+  },
+  "purchase_history": []
+}

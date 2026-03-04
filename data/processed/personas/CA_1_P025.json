@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P025",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "A dedicated senior who loves to bake, she visits Walmart regularly to restock her pantry essentials. She's known for experimenting with recipes, always ensuring her larder is well-supplied.",
+    "weekly_budget": 195.0,
+    "snap_eligible": false,
+    "shopping_motivation": "routine replenishment",
+    "economic_status": "middle-income",
+    "category_preference": {
+      "FOODS": 0.7,
+      "HOBBIES": 0.1,
+      "HOUSEHOLD": 0.2
+    },
+    "price_sensitivity": "medium",
+    "visit_frequency": "2-3 times/week",
+    "preferred_departments": [
+      "FOODS_3",
+      "HOUSEHOLD_1"
+    ],
+    "decision_style": "habitual",
+    "brand_loyalty": "high",
+    "promotion_sensitivity": "medium"
+  },
+  "purchase_history": []
+}

@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P036",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "Living downtown with his partner, this young professional uses shopping trips as an opportunity to unwind. He has a penchant for sophisticated gadgets and culinary experiments.",
+    "weekly_budget": 320.0,
+    "snap_eligible": false,
+    "shopping_motivation": "special occasion",
+    "economic_status": "discretionary spender",
+    "category_preference": {
+      "FOODS": 0.2,
+      "HOBBIES": 0.5,
+      "HOUSEHOLD": 0.3
+    },
+    "price_sensitivity": "low",
+    "visit_frequency": "bi-weekly",
+    "preferred_departments": [
+      "HOBBIES_2",
+      "FOODS_1"
+    ],
+    "decision_style": "impulsive",
+    "brand_loyalty": "high",
+    "promotion_sensitivity": "low"
+  },
+  "purchase_history": []
+}

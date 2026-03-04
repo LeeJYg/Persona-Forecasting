@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P039",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "As a senior enjoying her retirement, she delights in slow-paced shopping trips where she can examine each product, enjoying the social interaction as much as the shopping itself.",
+    "weekly_budget": 140.0,
+    "snap_eligible": false,
+    "shopping_motivation": "impulse browsing",
+    "economic_status": "middle-income",
+    "category_preference": {
+      "FOODS": 0.3,
+      "HOBBIES": 0.3,
+      "HOUSEHOLD": 0.4
+    },
+    "price_sensitivity": "low",
+    "visit_frequency": "2-3 times/week",
+    "preferred_departments": [
+      "HOUSEHOLD_2",
+      "HOBBIES_1"
+    ],
+    "decision_style": "impulsive",
+    "brand_loyalty": "low",
+    "promotion_sensitivity": "medium"
+  },
+  "purchase_history": []
+}

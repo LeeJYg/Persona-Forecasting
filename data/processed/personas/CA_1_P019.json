@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P019",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "An energetic gig worker often rushing through the store to snag quick meals and cleaning supplies during his short breaks. He values speed and efficiency, picking up most items on promotion.",
+    "weekly_budget": 180.0,
+    "snap_eligible": false,
+    "shopping_motivation": "stock-up trip",
+    "economic_status": "middle-income",
+    "category_preference": {
+      "FOODS": 0.4,
+      "HOBBIES": 0.2,
+      "HOUSEHOLD": 0.4
+    },
+    "price_sensitivity": "medium",
+    "visit_frequency": "weekly",
+    "preferred_departments": [
+      "HOUSEHOLD_2",
+      "FOODS_2"
+    ],
+    "decision_style": "planned",
+    "brand_loyalty": "low",
+    "promotion_sensitivity": "high"
+  },
+  "purchase_history": []
+}

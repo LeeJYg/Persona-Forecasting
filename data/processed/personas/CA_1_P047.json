@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P047",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "Sophia balances a busy schedule as a nurse while keeping her home organized. She regularly stocks up on household supplies during her nightly errands after work.",
+    "weekly_budget": 220.0,
+    "snap_eligible": false,
+    "shopping_motivation": "routine replenishment",
+    "economic_status": "upper-middle",
+    "category_preference": {
+      "FOODS": 0.4,
+      "HOBBIES": 0.2,
+      "HOUSEHOLD": 0.4
+    },
+    "price_sensitivity": "low",
+    "visit_frequency": "weekly",
+    "preferred_departments": [
+      "HOUSEHOLD_2",
+      "FOODS_1"
+    ],
+    "decision_style": "habitual",
+    "brand_loyalty": "medium",
+    "promotion_sensitivity": "medium"
+  },
+  "purchase_history": []
+}

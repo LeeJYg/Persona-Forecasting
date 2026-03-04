@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P017",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "A young professional couple who spends their weekends pursuing their culinary passion. Their focus is on selecting high-quality ingredients, often splurging on gourmet items to enhance their cooking.",
+    "weekly_budget": 250.0,
+    "snap_eligible": false,
+    "shopping_motivation": "hobby pursuit",
+    "economic_status": "upper-middle",
+    "category_preference": {
+      "FOODS": 0.5,
+      "HOBBIES": 0.4,
+      "HOUSEHOLD": 0.1
+    },
+    "price_sensitivity": "low",
+    "visit_frequency": "weekly",
+    "preferred_departments": [
+      "FOODS_3",
+      "HOBBIES_1"
+    ],
+    "decision_style": "planned",
+    "brand_loyalty": "high",
+    "promotion_sensitivity": "medium"
+  },
+  "purchase_history": []
+}

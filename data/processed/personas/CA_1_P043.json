@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P043",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "Martha recently retired and enjoys her newfound free time cooking and gardening. She loves scouting for deals on seeds and household tools while ensuring her pantry is always well-stocked.",
+    "weekly_budget": 120.0,
+    "snap_eligible": false,
+    "shopping_motivation": "stock-up trip",
+    "economic_status": "lower-middle",
+    "category_preference": {
+      "FOODS": 0.5,
+      "HOBBIES": 0.2,
+      "HOUSEHOLD": 0.3
+    },
+    "price_sensitivity": "medium",
+    "visit_frequency": "bi-weekly",
+    "preferred_departments": [
+      "HOUSEHOLD_1",
+      "HOBBIES_1"
+    ],
+    "decision_style": "habitual",
+    "brand_loyalty": "medium",
+    "promotion_sensitivity": "medium"
+  },
+  "purchase_history": []
+}

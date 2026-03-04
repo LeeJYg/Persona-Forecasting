@@ -1,0 +1,44 @@
+{
+  "generated_at": "2026-03-04T18:13:04.576998",
+  "n_personas": 50,
+  "store_id": "CA_1",
+  "distribution": {
+    "price_sensitivity": {
+      "medium": 25,
+      "high": 12,
+      "low": 13
+    },
+    "decision_style": {
+      "impulsive": 13,
+      "planned": 21,
+      "deal_seeker": 7,
+      "habitual": 9
+    },
+    "economic_status": {
+      "budget-constrained": 9,
+      "lower-middle": 10,
+      "middle-income": 14,
+      "upper-middle": 9,
+      "discretionary spender": 8
+    },
+    "shopping_motivation": {
+      "impulse browsing": 7,
+      "convenience fill-in": 5,
+      "deal hunting": 5,
+      "routine replenishment": 6,
+      "hobby pursuit": 7,
+      "stock-up trip": 6,
+      "health & wellness focus": 7,
+      "special occasion": 7
+    },
+    "snap_eligible": {
+      "True": 11,
+      "False": 39
+    },
+    "brand_loyalty": {
+      "low": 17,
+      "medium": 21,
+      "high": 12
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P006",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "Still adjusting to a new baby, he's quickly adapting to routine shopping, focusing on essentials that keep the house running smoothly for his growing family.",
+    "weekly_budget": 150.0,
+    "snap_eligible": false,
+    "shopping_motivation": "stock-up trip",
+    "economic_status": "middle-income",
+    "category_preference": {
+      "FOODS": 0.5,
+      "HOBBIES": 0.1,
+      "HOUSEHOLD": 0.4
+    },
+    "price_sensitivity": "medium",
+    "visit_frequency": "bi-weekly",
+    "preferred_departments": [
+      "HOUSEHOLD_2",
+      "FOODS_2"
+    ],
+    "decision_style": "habitual",
+    "brand_loyalty": "medium",
+    "promotion_sensitivity": "medium"
+  },
+  "purchase_history": []
+}

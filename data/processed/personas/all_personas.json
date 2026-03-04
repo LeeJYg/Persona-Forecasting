@@ -1,0 +1,1302 @@
+[
+  {
+    "persona_id": "CA_1_P001",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "A college student who thrives on spontaneity, often stopping by after classes to see what's new in the aisles. Her purchases are driven by curiosity rather than necessity.",
+      "weekly_budget": 75.0,
+      "snap_eligible": true,
+      "shopping_motivation": "impulse browsing",
+      "economic_status": "budget-constrained",
+      "category_preference": {
+        "FOODS": 0.6,
+        "HOBBIES": 0.2,
+        "HOUSEHOLD": 0.2
+      },
+      "price_sensitivity": "medium",
+      "visit_frequency": "2-3 times/week",
+      "preferred_departments": [
+        "FOODS_1",
+        "HOBBIES_2"
+      ],
+      "decision_style": "impulsive",
+      "brand_loyalty": "low",
+      "promotion_sensitivity": "medium"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P002",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "A young professional with a busy schedule, he values quick and efficient trips to grab necessities for his downtown apartment. His focus is on minimizing time spent shopping.",
+      "weekly_budget": 110.0,
+      "snap_eligible": false,
+      "shopping_motivation": "convenience fill-in",
+      "economic_status": "lower-middle",
+      "category_preference": {
+        "FOODS": 0.5,
+        "HOBBIES": 0.1,
+        "HOUSEHOLD": 0.4
+      },
+      "price_sensitivity": "high",
+      "visit_frequency": "weekly",
+      "preferred_departments": [
+        "FOODS_3",
+        "HOUSEHOLD_1"
+      ],
+      "decision_style": "planned",
+      "brand_loyalty": "medium",
+      "promotion_sensitivity": "high"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P003",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "Retired and living leisurely, she often explores different parts of the store, especially interested in finding deals to make her fixed income last longer.",
+      "weekly_budget": 150.0,
+      "snap_eligible": false,
+      "shopping_motivation": "deal hunting",
+      "economic_status": "middle-income",
+      "category_preference": {
+        "FOODS": 0.7,
+        "HOBBIES": 0.1,
+        "HOUSEHOLD": 0.2
+      },
+      "price_sensitivity": "high",
+      "visit_frequency": "weekly",
+      "preferred_departments": [
+        "FOODS_2",
+        "HOUSEHOLD_2"
+      ],
+      "decision_style": "deal_seeker",
+      "brand_loyalty": "low",
+      "promotion_sensitivity": "high"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P004",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "Living in suburbia with two kids, she makes efficient shopping lists for weekly trips, focusing on meals and supplies that cater to her family's needs.",
+      "weekly_budget": 230.0,
+      "snap_eligible": false,
+      "shopping_motivation": "routine replenishment",
+      "economic_status": "upper-middle",
+      "category_preference": {
+        "FOODS": 0.6,
+        "HOBBIES": 0.2,
+        "HOUSEHOLD": 0.2
+      },
+      "price_sensitivity": "medium",
+      "visit_frequency": "weekly",
+      "preferred_departments": [
+        "FOODS_1",
+        "HOUSEHOLD_1"
+      ],
+      "decision_style": "habitual",
+      "brand_loyalty": "high",
+      "promotion_sensitivity": "medium"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P005",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "A tech enthusiast in his late 20s, he frequently visits to pick up supplies for his electronics DIY projects, always on the lookout for the latest in hobby materials.",
+      "weekly_budget": 280.0,
+      "snap_eligible": false,
+      "shopping_motivation": "hobby pursuit",
+      "economic_status": "discretionary spender",
+      "category_preference": {
+        "FOODS": 0.2,
+        "HOBBIES": 0.6,
+        "HOUSEHOLD": 0.2
+      },
+      "price_sensitivity": "low",
+      "visit_frequency": "2-3 times/week",
+      "preferred_departments": [
+        "HOBBIES_1",
+        "HOBBIES_2"
+      ],
+      "decision_style": "planned",
+      "brand_loyalty": "medium",
+      "promotion_sensitivity": "low"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P006",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "Still adjusting to a new baby, he's quickly adapting to routine shopping, focusing on essentials that keep the house running smoothly for his growing family.",
+      "weekly_budget": 150.0,
+      "snap_eligible": false,
+      "shopping_motivation": "stock-up trip",
+      "economic_status": "middle-income",
+      "category_preference": {
+        "FOODS": 0.5,
+        "HOBBIES": 0.1,
+        "HOUSEHOLD": 0.4
+      },
+      "price_sensitivity": "medium",
+      "visit_frequency": "bi-weekly",
+      "preferred_departments": [
+        "HOUSEHOLD_2",
+        "FOODS_2"
+      ],
+      "decision_style": "habitual",
+      "brand_loyalty": "medium",
+      "promotion_sensitivity": "medium"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P007",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "A fitness enthusiast in her 30s, she prioritizes purchasing protein-rich foods and wellness products to support her active lifestyle, often exploring new health-oriented items.",
+      "weekly_budget": 200.0,
+      "snap_eligible": false,
+      "shopping_motivation": "health & wellness focus",
+      "economic_status": "middle-income",
+      "category_preference": {
+        "FOODS": 0.8,
+        "HOBBIES": 0.1,
+        "HOUSEHOLD": 0.1
+      },
+      "price_sensitivity": "medium",
+      "visit_frequency": "weekly",
+      "preferred_departments": [
+        "FOODS_1",
+        "FOODS_3"
+      ],
+      "decision_style": "planned",
+      "brand_loyalty": "high",
+      "promotion_sensitivity": "low"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P008",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "With newfound freedom post-retirement, she enjoys leisurely visits to discover unique finds for her art projects, indulging her creative side.",
+      "weekly_budget": 90.0,
+      "snap_eligible": false,
+      "shopping_motivation": "special occasion",
+      "economic_status": "lower-middle",
+      "category_preference": {
+        "FOODS": 0.3,
+        "HOBBIES": 0.5,
+        "HOUSEHOLD": 0.2
+      },
+      "price_sensitivity": "medium",
+      "visit_frequency": "weekly",
+      "preferred_departments": [
+        "HOBBIES_1",
+        "HOUSEHOLD_1"
+      ],
+      "decision_style": "impulsive",
+      "brand_loyalty": "low",
+      "promotion_sensitivity": "medium"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P009",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "A family-oriented father who manages his family's monthly grocery run, ensuring the pantry is well-stocked with all staples and household needs.",
+      "weekly_budget": 190.0,
+      "snap_eligible": false,
+      "shopping_motivation": "stock-up trip",
+      "economic_status": "middle-income",
+      "category_preference": {
+        "FOODS": 0.7,
+        "HOBBIES": 0.1,
+        "HOUSEHOLD": 0.2
+      },
+      "price_sensitivity": "medium",
+      "visit_frequency": "bi-weekly",
+      "preferred_departments": [
+        "FOODS_1",
+        "HOUSEHOLD_1"
+      ],
+      "decision_style": "planned",
+      "brand_loyalty": "medium",
+      "promotion_sensitivity": "medium"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P010",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "An energetic retiree who loves to throw parties and is always on the lookout for fun and festive items to make her gatherings more exciting.",
+      "weekly_budget": 160.0,
+      "snap_eligible": false,
+      "shopping_motivation": "special occasion",
+      "economic_status": "middle-income",
+      "category_preference": {
+        "FOODS": 0.4,
+        "HOBBIES": 0.5,
+        "HOUSEHOLD": 0.1
+      },
+      "price_sensitivity": "low",
+      "visit_frequency": "2-3 times/week",
+      "preferred_departments": [
+        "HOBBIES_2",
+        "FOODS_2"
+      ],
+      "decision_style": "impulsive",
+      "brand_loyalty": "low",
+      "promotion_sensitivity": "high"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P011",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "A retired librarian who loves gardening finds serenity in carefully selecting gourmet ingredients for her homemade meals. She's known to indulge in premium produce and spends leisurely afternoons exploring food aisles.",
+      "weekly_budget": 190.0,
+      "snap_eligible": false,
+      "shopping_motivation": "health & wellness focus",
+      "economic_status": "upper-middle",
+      "category_preference": {
+        "FOODS": 0.7,
+        "HOBBIES": 0.15,
+        "HOUSEHOLD": 0.15
+      },
+      "price_sensitivity": "medium",
+      "visit_frequency": "bi-weekly",
+      "preferred_departments": [
+        "FOODS_2",
+        "HOUSEHOLD_1"
+      ],
+      "decision_style": "planned",
+      "brand_loyalty": "medium",
+      "promotion_sensitivity": "medium"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P012",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "An urban professional frequently buzzing through the store, picking up essentials for convenient weeknight dinners. Quick to add value packs when on display, she navigates through aisles with purpose.",
+      "weekly_budget": 120.0,
+      "snap_eligible": false,
+      "shopping_motivation": "convenience fill-in",
+      "economic_status": "lower-middle",
+      "category_preference": {
+        "FOODS": 0.6,
+        "HOBBIES": 0.2,
+        "HOUSEHOLD": 0.2
+      },
+      "price_sensitivity": "medium",
+      "visit_frequency": "2-3 times/week",
+      "preferred_departments": [
+        "FOODS_1",
+        "HOUSEHOLD_2"
+      ],
+      "decision_style": "deal_seeker",
+      "brand_loyalty": "medium",
+      "promotion_sensitivity": "high"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P013",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "A young student browsing the aisles with a keen eye for markdowns, grabbing unique snacks and kitchen supplies that fit her tight budget. Sales steer her choices.",
+      "weekly_budget": 50.0,
+      "snap_eligible": true,
+      "shopping_motivation": "deal hunting",
+      "economic_status": "budget-constrained",
+      "category_preference": {
+        "FOODS": 0.5,
+        "HOBBIES": 0.2,
+        "HOUSEHOLD": 0.3
+      },
+      "price_sensitivity": "high",
+      "visit_frequency": "weekly",
+      "preferred_departments": [
+        "FOODS_1",
+        "HOUSEHOLD_1"
+      ],
+      "decision_style": "deal_seeker",
+      "brand_loyalty": "low",
+      "promotion_sensitivity": "high"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P014",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "A suburban mother of three, her cart always filled to the brim with household essentials and snacks for kids. Known for her calculated approach to shopping, she rarely strays from her list.",
+      "weekly_budget": 200.0,
+      "snap_eligible": false,
+      "shopping_motivation": "routine replenishment",
+      "economic_status": "middle-income",
+      "category_preference": {
+        "FOODS": 0.4,
+        "HOBBIES": 0.3,
+        "HOUSEHOLD": 0.3
+      },
+      "price_sensitivity": "medium",
+      "visit_frequency": "weekly",
+      "preferred_departments": [
+        "FOODS_3",
+        "HOUSEHOLD_2"
+      ],
+      "decision_style": "planned",
+      "brand_loyalty": "high",
+      "promotion_sensitivity": "medium"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P015",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "A tech-savvy gig worker who thrives on spontaneity, often discovering nifty gadgets and novelty foods during his visits. His purchases are impulsively dictated by what catches his eye.",
+      "weekly_budget": 270.0,
+      "snap_eligible": false,
+      "shopping_motivation": "impulse browsing",
+      "economic_status": "discretionary spender",
+      "category_preference": {
+        "FOODS": 0.2,
+        "HOBBIES": 0.6,
+        "HOUSEHOLD": 0.2
+      },
+      "price_sensitivity": "low",
+      "visit_frequency": "2-3 times/week",
+      "preferred_departments": [
+        "HOBBIES_1",
+        "HOUSEHOLD_2"
+      ],
+      "decision_style": "impulsive",
+      "brand_loyalty": "low",
+      "promotion_sensitivity": "low"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P016",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "An artistic retiree consistently found in the crafts aisle, searching for new supplies to fuel her creative projects. Sales and promotions often guide her choices more than necessity.",
+      "weekly_budget": 80.0,
+      "snap_eligible": true,
+      "shopping_motivation": "special occasion",
+      "economic_status": "budget-constrained",
+      "category_preference": {
+        "FOODS": 0.2,
+        "HOBBIES": 0.7,
+        "HOUSEHOLD": 0.1
+      },
+      "price_sensitivity": "medium",
+      "visit_frequency": "weekly",
+      "preferred_departments": [
+        "HOBBIES_2",
+        "HOUSEHOLD_1"
+      ],
+      "decision_style": "deal_seeker",
+      "brand_loyalty": "medium",
+      "promotion_sensitivity": "high"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P017",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "A young professional couple who spends their weekends pursuing their culinary passion. Their focus is on selecting high-quality ingredients, often splurging on gourmet items to enhance their cooking.",
+      "weekly_budget": 250.0,
+      "snap_eligible": false,
+      "shopping_motivation": "hobby pursuit",
+      "economic_status": "upper-middle",
+      "category_preference": {
+        "FOODS": 0.5,
+        "HOBBIES": 0.4,
+        "HOUSEHOLD": 0.1
+      },
+      "price_sensitivity": "low",
+      "visit_frequency": "weekly",
+      "preferred_departments": [
+        "FOODS_3",
+        "HOBBIES_1"
+      ],
+      "decision_style": "planned",
+      "brand_loyalty": "high",
+      "promotion_sensitivity": "medium"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P018",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "A rural retiree with a passion for DIY projects, always seen inspecting the hobby supplies. Enjoys taking his time in-store, occasionally purchasing in bulk if he finds a good deal on materials.",
+      "weekly_budget": 110.0,
+      "snap_eligible": false,
+      "shopping_motivation": "impulse browsing",
+      "economic_status": "lower-middle",
+      "category_preference": {
+        "FOODS": 0.3,
+        "HOBBIES": 0.6,
+        "HOUSEHOLD": 0.1
+      },
+      "price_sensitivity": "medium",
+      "visit_frequency": "bi-weekly",
+      "preferred_departments": [
+        "HOBBIES_1",
+        "HOUSEHOLD_1"
+      ],
+      "decision_style": "habitual",
+      "brand_loyalty": "medium",
+      "promotion_sensitivity": "medium"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P019",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "An energetic gig worker often rushing through the store to snag quick meals and cleaning supplies during his short breaks. He values speed and efficiency, picking up most items on promotion.",
+      "weekly_budget": 180.0,
+      "snap_eligible": false,
+      "shopping_motivation": "stock-up trip",
+      "economic_status": "middle-income",
+      "category_preference": {
+        "FOODS": 0.4,
+        "HOBBIES": 0.2,
+        "HOUSEHOLD": 0.4
+      },
+      "price_sensitivity": "medium",
+      "visit_frequency": "weekly",
+      "preferred_departments": [
+        "HOUSEHOLD_2",
+        "FOODS_2"
+      ],
+      "decision_style": "planned",
+      "brand_loyalty": "low",
+      "promotion_sensitivity": "high"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P020",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "A single city dweller with a knack for tasteful décor, frequently scouting household aisles for trendy pieces. Her purchases are guided by both aesthetic appeal and practical need.",
+      "weekly_budget": 300.0,
+      "snap_eligible": false,
+      "shopping_motivation": "special occasion",
+      "economic_status": "discretionary spender",
+      "category_preference": {
+        "FOODS": 0.15,
+        "HOBBIES": 0.3,
+        "HOUSEHOLD": 0.55
+      },
+      "price_sensitivity": "low",
+      "visit_frequency": "2-3 times/week",
+      "preferred_departments": [
+        "HOUSEHOLD_1",
+        "HOBBIES_2"
+      ],
+      "decision_style": "impulsive",
+      "brand_loyalty": "medium",
+      "promotion_sensitivity": "low"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P021",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "A young man in his early twenties frequently drops by the Walmart on his way home from college. He is quick to grab what he needs as he plans to avoid any last-minute dashes when studying hits hard at the end of the week.",
+      "weekly_budget": 45.0,
+      "snap_eligible": true,
+      "shopping_motivation": "convenience fill-in",
+      "economic_status": "budget-constrained",
+      "category_preference": {
+        "FOODS": 0.6,
+        "HOBBIES": 0.2,
+        "HOUSEHOLD": 0.2
+      },
+      "price_sensitivity": "high",
+      "visit_frequency": "2-3 times/week",
+      "preferred_departments": [
+        "FOODS_1",
+        "HOUSEHOLD_1"
+      ],
+      "decision_style": "planned",
+      "brand_loyalty": "low",
+      "promotion_sensitivity": "high"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P022",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "A retiree in a peaceful suburban area, she enjoys taking leisurely trips to Walmart, where she often gets inspiration for new crafts or gardening projects from her favorite aisles.",
+      "weekly_budget": 75.0,
+      "snap_eligible": true,
+      "shopping_motivation": "hobby pursuit",
+      "economic_status": "lower-middle",
+      "category_preference": {
+        "FOODS": 0.3,
+        "HOBBIES": 0.5,
+        "HOUSEHOLD": 0.2
+      },
+      "price_sensitivity": "medium",
+      "visit_frequency": "weekly",
+      "preferred_departments": [
+        "HOBBIES_1",
+        "HOUSEHOLD_2"
+      ],
+      "decision_style": "impulsive",
+      "brand_loyalty": "medium",
+      "promotion_sensitivity": "medium"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P023",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "A busy mom and urban professional on a tight schedule, she cherishes her Sunday afternoon trip to Walmart where she ensures the household is fully stocked for the week.",
+      "weekly_budget": 170.0,
+      "snap_eligible": false,
+      "shopping_motivation": "stock-up trip",
+      "economic_status": "middle-income",
+      "category_preference": {
+        "FOODS": 0.5,
+        "HOBBIES": 0.1,
+        "HOUSEHOLD": 0.4
+      },
+      "price_sensitivity": "medium",
+      "visit_frequency": "weekly",
+      "preferred_departments": [
+        "HOUSEHOLD_1",
+        "FOODS_2"
+      ],
+      "decision_style": "planned",
+      "brand_loyalty": "high",
+      "promotion_sensitivity": "medium"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P024",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "A tech-savvy urban single frequently on the lookout for the latest gadgets and smart home items, he finds browsing Walmart's electronics section thrilling.",
+      "weekly_budget": 220.0,
+      "snap_eligible": false,
+      "shopping_motivation": "impulse browsing",
+      "economic_status": "upper-middle",
+      "category_preference": {
+        "FOODS": 0.2,
+        "HOBBIES": 0.5,
+        "HOUSEHOLD": 0.3
+      },
+      "price_sensitivity": "low",
+      "visit_frequency": "bi-weekly",
+      "preferred_departments": [
+        "HOBBIES_2",
+        "HOUSEHOLD_2"
+      ],
+      "decision_style": "impulsive",
+      "brand_loyalty": "medium",
+      "promotion_sensitivity": "low"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P025",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "A dedicated senior who loves to bake, she visits Walmart regularly to restock her pantry essentials. She's known for experimenting with recipes, always ensuring her larder is well-supplied.",
+      "weekly_budget": 195.0,
+      "snap_eligible": false,
+      "shopping_motivation": "routine replenishment",
+      "economic_status": "middle-income",
+      "category_preference": {
+        "FOODS": 0.7,
+        "HOBBIES": 0.1,
+        "HOUSEHOLD": 0.2
+      },
+      "price_sensitivity": "medium",
+      "visit_frequency": "2-3 times/week",
+      "preferred_departments": [
+        "FOODS_3",
+        "HOUSEHOLD_1"
+      ],
+      "decision_style": "habitual",
+      "brand_loyalty": "high",
+      "promotion_sensitivity": "medium"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P026",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "A financially savvy young professional, he strategically plans his Walmart runs around deals, maximizing savings while enjoying the thrill of snagging great bargains.",
+      "weekly_budget": 290.0,
+      "snap_eligible": false,
+      "shopping_motivation": "deal hunting",
+      "economic_status": "upper-middle",
+      "category_preference": {
+        "FOODS": 0.4,
+        "HOBBIES": 0.3,
+        "HOUSEHOLD": 0.3
+      },
+      "price_sensitivity": "high",
+      "visit_frequency": "weekly",
+      "preferred_departments": [
+        "FOODS_2",
+        "HOBBIES_1"
+      ],
+      "decision_style": "deal_seeker",
+      "brand_loyalty": "low",
+      "promotion_sensitivity": "high"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P027",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "A work-from-home gig worker who indulges in wellness products to ensure her physical and mental health is top-notch, she enjoys her weekly Walmart trip to explore new health products.",
+      "weekly_budget": 260.0,
+      "snap_eligible": false,
+      "shopping_motivation": "health & wellness focus",
+      "economic_status": "discretionary spender",
+      "category_preference": {
+        "FOODS": 0.3,
+        "HOBBIES": 0.1,
+        "HOUSEHOLD": 0.6
+      },
+      "price_sensitivity": "low",
+      "visit_frequency": "bi-weekly",
+      "preferred_departments": [
+        "HOUSEHOLD_2",
+        "FOODS_1"
+      ],
+      "decision_style": "planned",
+      "brand_loyalty": "medium",
+      "promotion_sensitivity": "low"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P028",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "A single senior woman celebrates special occasions with her grandchildren, frequently stopping by Walmart to find festive decorations and snacks for their gatherings.",
+      "weekly_budget": 65.0,
+      "snap_eligible": true,
+      "shopping_motivation": "special occasion",
+      "economic_status": "lower-middle",
+      "category_preference": {
+        "FOODS": 0.3,
+        "HOBBIES": 0.3,
+        "HOUSEHOLD": 0.4
+      },
+      "price_sensitivity": "medium",
+      "visit_frequency": "weekly",
+      "preferred_departments": [
+        "HOUSEHOLD_1",
+        "HOBBIES_2"
+      ],
+      "decision_style": "habitual",
+      "brand_loyalty": "medium",
+      "promotion_sensitivity": "high"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P029",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "A suburban dad involved in the local community often buys supplies for the neighborhood gardening club. He's known for picking quality over price for his landscaping passion.",
+      "weekly_budget": 320.0,
+      "snap_eligible": false,
+      "shopping_motivation": "hobby pursuit",
+      "economic_status": "discretionary spender",
+      "category_preference": {
+        "FOODS": 0.2,
+        "HOBBIES": 0.5,
+        "HOUSEHOLD": 0.3
+      },
+      "price_sensitivity": "low",
+      "visit_frequency": "bi-weekly",
+      "preferred_departments": [
+        "HOBBIES_1",
+        "HOUSEHOLD_2"
+      ],
+      "decision_style": "planned",
+      "brand_loyalty": "high",
+      "promotion_sensitivity": "medium"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P030",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "A rural resident who makes Walmart a one-stop destination, ensuring the car’s full for the ride home. He’s efficient and practical, maintaining his household with a well-organized list.",
+      "weekly_budget": 85.0,
+      "snap_eligible": true,
+      "shopping_motivation": "routine replenishment",
+      "economic_status": "budget-constrained",
+      "category_preference": {
+        "FOODS": 0.4,
+        "HOBBIES": 0.2,
+        "HOUSEHOLD": 0.4
+      },
+      "price_sensitivity": "high",
+      "visit_frequency": "weekly",
+      "preferred_departments": [
+        "HOUSEHOLD_1",
+        "FOODS_2"
+      ],
+      "decision_style": "planned",
+      "brand_loyalty": "low",
+      "promotion_sensitivity": "high"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P031",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "As an urban professional in his late twenties, he often grabs quick meals and household necessities on his commute home, ensuring he has everything for the upcoming week. His busy schedule means he seeks efficient shopping solutions.",
+      "weekly_budget": 120.0,
+      "snap_eligible": false,
+      "shopping_motivation": "convenience fill-in",
+      "economic_status": "lower-middle",
+      "category_preference": {
+        "FOODS": 0.5,
+        "HOBBIES": 0.2,
+        "HOUSEHOLD": 0.3
+      },
+      "price_sensitivity": "medium",
+      "visit_frequency": "2-3 times/week",
+      "preferred_departments": [
+        "FOODS_1",
+        "HOUSEHOLD_1"
+      ],
+      "decision_style": "planned",
+      "brand_loyalty": "medium",
+      "promotion_sensitivity": "medium"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P032",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "A retiree enjoying suburban life, she takes pleasure in exploring new hobbies. Her trips to Walmart are leisurely, and she enjoys discovering new craft supplies and gourmet foods that catch her eye.",
+      "weekly_budget": 85.0,
+      "snap_eligible": false,
+      "shopping_motivation": "impulse browsing",
+      "economic_status": "budget-constrained",
+      "category_preference": {
+        "FOODS": 0.3,
+        "HOBBIES": 0.5,
+        "HOUSEHOLD": 0.2
+      },
+      "price_sensitivity": "high",
+      "visit_frequency": "weekly",
+      "preferred_departments": [
+        "HOBBIES_1",
+        "FOODS_2"
+      ],
+      "decision_style": "impulsive",
+      "brand_loyalty": "low",
+      "promotion_sensitivity": "high"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P033",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "This young student balances coursework and part-time work. She visits Walmart bi-weekly for essentials, often picking up healthy snacks and supplies for her dorm room.",
+      "weekly_budget": 75.0,
+      "snap_eligible": true,
+      "shopping_motivation": "health & wellness focus",
+      "economic_status": "budget-constrained",
+      "category_preference": {
+        "FOODS": 0.6,
+        "HOBBIES": 0.1,
+        "HOUSEHOLD": 0.3
+      },
+      "price_sensitivity": "high",
+      "visit_frequency": "bi-weekly",
+      "preferred_departments": [
+        "FOODS_3",
+        "HOUSEHOLD_2"
+      ],
+      "decision_style": "planned",
+      "brand_loyalty": "medium",
+      "promotion_sensitivity": "high"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P034",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "A single gig worker living in the heart of the city, she appreciates the convenience of quick trips to Walmart for household items and groceries she needs between jobs.",
+      "weekly_budget": 150.0,
+      "snap_eligible": false,
+      "shopping_motivation": "routine replenishment",
+      "economic_status": "middle-income",
+      "category_preference": {
+        "FOODS": 0.4,
+        "HOBBIES": 0.1,
+        "HOUSEHOLD": 0.5
+      },
+      "price_sensitivity": "medium",
+      "visit_frequency": "weekly",
+      "preferred_departments": [
+        "HOUSEHOLD_1",
+        "FOODS_1"
+      ],
+      "decision_style": "habitual",
+      "brand_loyalty": "medium",
+      "promotion_sensitivity": "medium"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P035",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "As a suburban parent, he values finding deals for his family. He diligently checks flyers and apps before heading out to ensure he makes the most of every shopping trip.",
+      "weekly_budget": 220.0,
+      "snap_eligible": false,
+      "shopping_motivation": "deal hunting",
+      "economic_status": "upper-middle",
+      "category_preference": {
+        "FOODS": 0.4,
+        "HOBBIES": 0.2,
+        "HOUSEHOLD": 0.4
+      },
+      "price_sensitivity": "high",
+      "visit_frequency": "2-3 times/week",
+      "preferred_departments": [
+        "FOODS_1",
+        "HOUSEHOLD_2"
+      ],
+      "decision_style": "deal_seeker",
+      "brand_loyalty": "low",
+      "promotion_sensitivity": "high"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P036",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "Living downtown with his partner, this young professional uses shopping trips as an opportunity to unwind. He has a penchant for sophisticated gadgets and culinary experiments.",
+      "weekly_budget": 320.0,
+      "snap_eligible": false,
+      "shopping_motivation": "special occasion",
+      "economic_status": "discretionary spender",
+      "category_preference": {
+        "FOODS": 0.2,
+        "HOBBIES": 0.5,
+        "HOUSEHOLD": 0.3
+      },
+      "price_sensitivity": "low",
+      "visit_frequency": "bi-weekly",
+      "preferred_departments": [
+        "HOBBIES_2",
+        "FOODS_1"
+      ],
+      "decision_style": "impulsive",
+      "brand_loyalty": "high",
+      "promotion_sensitivity": "low"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P037",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "Retired and living in a rural area, she enjoys her time gardening and crafting, often browsing Walmart for materials to pursue her hobbies with great enthusiasm.",
+      "weekly_budget": 130.0,
+      "snap_eligible": false,
+      "shopping_motivation": "hobby pursuit",
+      "economic_status": "middle-income",
+      "category_preference": {
+        "FOODS": 0.3,
+        "HOBBIES": 0.5,
+        "HOUSEHOLD": 0.2
+      },
+      "price_sensitivity": "medium",
+      "visit_frequency": "weekly",
+      "preferred_departments": [
+        "HOBBIES_1",
+        "HOUSEHOLD_1"
+      ],
+      "decision_style": "habitual",
+      "brand_loyalty": "medium",
+      "promotion_sensitivity": "medium"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P038",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "In the midst of her bustling suburban life as a mother of three, she focuses on maintaining a healthy lifestyle for her family, filling her cart with organic and wholesome products.",
+      "weekly_budget": 180.0,
+      "snap_eligible": false,
+      "shopping_motivation": "health & wellness focus",
+      "economic_status": "upper-middle",
+      "category_preference": {
+        "FOODS": 0.6,
+        "HOBBIES": 0.2,
+        "HOUSEHOLD": 0.2
+      },
+      "price_sensitivity": "medium",
+      "visit_frequency": "2-3 times/week",
+      "preferred_departments": [
+        "FOODS_2",
+        "FOODS_3"
+      ],
+      "decision_style": "planned",
+      "brand_loyalty": "high",
+      "promotion_sensitivity": "medium"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P039",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "As a senior enjoying her retirement, she delights in slow-paced shopping trips where she can examine each product, enjoying the social interaction as much as the shopping itself.",
+      "weekly_budget": 140.0,
+      "snap_eligible": false,
+      "shopping_motivation": "impulse browsing",
+      "economic_status": "middle-income",
+      "category_preference": {
+        "FOODS": 0.3,
+        "HOBBIES": 0.3,
+        "HOUSEHOLD": 0.4
+      },
+      "price_sensitivity": "low",
+      "visit_frequency": "2-3 times/week",
+      "preferred_departments": [
+        "HOUSEHOLD_2",
+        "HOBBIES_1"
+      ],
+      "decision_style": "impulsive",
+      "brand_loyalty": "low",
+      "promotion_sensitivity": "medium"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P040",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "A young couple starting their life together in the city, they enjoy exploring new recipes and products, visiting Walmart to stock up on essentials and try the latest culinary trends.",
+      "weekly_budget": 260.0,
+      "snap_eligible": false,
+      "shopping_motivation": "stock-up trip",
+      "economic_status": "discretionary spender",
+      "category_preference": {
+        "FOODS": 0.5,
+        "HOBBIES": 0.3,
+        "HOUSEHOLD": 0.2
+      },
+      "price_sensitivity": "low",
+      "visit_frequency": "weekly",
+      "preferred_departments": [
+        "FOODS_1",
+        "FOODS_3"
+      ],
+      "decision_style": "planned",
+      "brand_loyalty": "high",
+      "promotion_sensitivity": "low"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P041",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "Emma is a college student balancing studies and a part-time job. She makes quick trips to the store between classes, often picking up snacks, ready-to-eat meals, and school supplies.",
+      "weekly_budget": 50.0,
+      "snap_eligible": true,
+      "shopping_motivation": "convenience fill-in",
+      "economic_status": "budget-constrained",
+      "category_preference": {
+        "FOODS": 0.6,
+        "HOBBIES": 0.3,
+        "HOUSEHOLD": 0.1
+      },
+      "price_sensitivity": "high",
+      "visit_frequency": "2-3 times/week",
+      "preferred_departments": [
+        "FOODS_1",
+        "HOBBIES_2"
+      ],
+      "decision_style": "impulsive",
+      "brand_loyalty": "low",
+      "promotion_sensitivity": "high"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P042",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "Benjamin is a tech-savvy urban professional always on the lookout for innovative gadgets and quality ingredients for his meal-prep routines. He’s willing to splurge on premium items if they align with his values.",
+      "weekly_budget": 260.0,
+      "snap_eligible": false,
+      "shopping_motivation": "health & wellness focus",
+      "economic_status": "discretionary spender",
+      "category_preference": {
+        "FOODS": 0.7,
+        "HOBBIES": 0.2,
+        "HOUSEHOLD": 0.1
+      },
+      "price_sensitivity": "low",
+      "visit_frequency": "weekly",
+      "preferred_departments": [
+        "FOODS_2",
+        "HOBBIES_1"
+      ],
+      "decision_style": "planned",
+      "brand_loyalty": "high",
+      "promotion_sensitivity": "medium"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P043",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "Martha recently retired and enjoys her newfound free time cooking and gardening. She loves scouting for deals on seeds and household tools while ensuring her pantry is always well-stocked.",
+      "weekly_budget": 120.0,
+      "snap_eligible": false,
+      "shopping_motivation": "stock-up trip",
+      "economic_status": "lower-middle",
+      "category_preference": {
+        "FOODS": 0.5,
+        "HOBBIES": 0.2,
+        "HOUSEHOLD": 0.3
+      },
+      "price_sensitivity": "medium",
+      "visit_frequency": "bi-weekly",
+      "preferred_departments": [
+        "HOUSEHOLD_1",
+        "HOBBIES_1"
+      ],
+      "decision_style": "habitual",
+      "brand_loyalty": "medium",
+      "promotion_sensitivity": "medium"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P044",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "Jason is a freelance artist living in a small town, frequently visiting the store to replenish his art supplies and household essentials. He enjoys browsing and often ends up buying extra materials for his projects.",
+      "weekly_budget": 180.0,
+      "snap_eligible": false,
+      "shopping_motivation": "hobby pursuit",
+      "economic_status": "upper-middle",
+      "category_preference": {
+        "FOODS": 0.3,
+        "HOBBIES": 0.5,
+        "HOUSEHOLD": 0.2
+      },
+      "price_sensitivity": "medium",
+      "visit_frequency": "weekly",
+      "preferred_departments": [
+        "HOBBIES_2",
+        "HOUSEHOLD_2"
+      ],
+      "decision_style": "impulsive",
+      "brand_loyalty": "low",
+      "promotion_sensitivity": "high"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P045",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "Clara is a stay-at-home mom with a busy family schedule. She plans her shopping trips meticulously around promotions and sales, ensuring she gets the best deals while sticking to her budget.",
+      "weekly_budget": 100.0,
+      "snap_eligible": true,
+      "shopping_motivation": "deal hunting",
+      "economic_status": "lower-middle",
+      "category_preference": {
+        "FOODS": 0.6,
+        "HOBBIES": 0.1,
+        "HOUSEHOLD": 0.3
+      },
+      "price_sensitivity": "high",
+      "visit_frequency": "weekly",
+      "preferred_departments": [
+        "FOODS_3",
+        "HOUSEHOLD_1"
+      ],
+      "decision_style": "deal_seeker",
+      "brand_loyalty": "low",
+      "promotion_sensitivity": "high"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P046",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "Kevin works in the bustling city and enjoys cooking gourmet meals at home after long work hours. Occasionally, he treats himself to fancy kitchen gadgets while minimizing extraneous spending.",
+      "weekly_budget": 200.0,
+      "snap_eligible": false,
+      "shopping_motivation": "special occasion",
+      "economic_status": "middle-income",
+      "category_preference": {
+        "FOODS": 0.4,
+        "HOBBIES": 0.3,
+        "HOUSEHOLD": 0.3
+      },
+      "price_sensitivity": "medium",
+      "visit_frequency": "bi-weekly",
+      "preferred_departments": [
+        "FOODS_1",
+        "HOBBIES_1"
+      ],
+      "decision_style": "planned",
+      "brand_loyalty": "medium",
+      "promotion_sensitivity": "medium"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P047",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "Sophia balances a busy schedule as a nurse while keeping her home organized. She regularly stocks up on household supplies during her nightly errands after work.",
+      "weekly_budget": 220.0,
+      "snap_eligible": false,
+      "shopping_motivation": "routine replenishment",
+      "economic_status": "upper-middle",
+      "category_preference": {
+        "FOODS": 0.4,
+        "HOBBIES": 0.2,
+        "HOUSEHOLD": 0.4
+      },
+      "price_sensitivity": "low",
+      "visit_frequency": "weekly",
+      "preferred_departments": [
+        "HOUSEHOLD_2",
+        "FOODS_1"
+      ],
+      "decision_style": "habitual",
+      "brand_loyalty": "medium",
+      "promotion_sensitivity": "medium"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P048",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "Isaac is a gig worker always on the go. Quick stops for fuel and food ensure he can continue working efficiently. He often speeds through the aisles, picking up just enough to get by.",
+      "weekly_budget": 70.0,
+      "snap_eligible": true,
+      "shopping_motivation": "impulse browsing",
+      "economic_status": "budget-constrained",
+      "category_preference": {
+        "FOODS": 0.5,
+        "HOBBIES": 0.2,
+        "HOUSEHOLD": 0.3
+      },
+      "price_sensitivity": "high",
+      "visit_frequency": "daily",
+      "preferred_departments": [
+        "FOODS_2",
+        "HOUSEHOLD_1"
+      ],
+      "decision_style": "impulsive",
+      "brand_loyalty": "low",
+      "promotion_sensitivity": "high"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P049",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "Harold is a retiree who loves woodworking and exploring DIY projects. He frequently visits to pick up supplies for his hobbies and keeps an eye out for new project inspirations.",
+      "weekly_budget": 130.0,
+      "snap_eligible": false,
+      "shopping_motivation": "hobby pursuit",
+      "economic_status": "lower-middle",
+      "category_preference": {
+        "FOODS": 0.2,
+        "HOBBIES": 0.5,
+        "HOUSEHOLD": 0.3
+      },
+      "price_sensitivity": "medium",
+      "visit_frequency": "2-3 times/week",
+      "preferred_departments": [
+        "HOBBIES_1",
+        "HOUSEHOLD_2"
+      ],
+      "decision_style": "planned",
+      "brand_loyalty": "medium",
+      "promotion_sensitivity": "low"
+    },
+    "purchase_history": []
+  },
+  {
+    "persona_id": "CA_1_P050",
+    "store_id": "CA_1",
+    "profile": {
+      "description": "Nancy recently moved to a rural area and loves experimenting with new recipes using local produce. Her trips are methodically planned, but she occasionally treats herself to premium ingredients.",
+      "weekly_budget": 150.0,
+      "snap_eligible": false,
+      "shopping_motivation": "health & wellness focus",
+      "economic_status": "middle-income",
+      "category_preference": {
+        "FOODS": 0.7,
+        "HOBBIES": 0.1,
+        "HOUSEHOLD": 0.2
+      },
+      "price_sensitivity": "medium",
+      "visit_frequency": "weekly",
+      "preferred_departments": [
+        "FOODS_3",
+        "HOUSEHOLD_1"
+      ],
+      "decision_style": "planned",
+      "brand_loyalty": "high",
+      "promotion_sensitivity": "medium"
+    },
+    "purchase_history": []
+  }
+]

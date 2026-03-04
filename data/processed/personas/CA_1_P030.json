@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P030",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "A rural resident who makes Walmart a one-stop destination, ensuring the car’s full for the ride home. He’s efficient and practical, maintaining his household with a well-organized list.",
+    "weekly_budget": 85.0,
+    "snap_eligible": true,
+    "shopping_motivation": "routine replenishment",
+    "economic_status": "budget-constrained",
+    "category_preference": {
+      "FOODS": 0.4,
+      "HOBBIES": 0.2,
+      "HOUSEHOLD": 0.4
+    },
+    "price_sensitivity": "high",
+    "visit_frequency": "weekly",
+    "preferred_departments": [
+      "HOUSEHOLD_1",
+      "FOODS_2"
+    ],
+    "decision_style": "planned",
+    "brand_loyalty": "low",
+    "promotion_sensitivity": "high"
+  },
+  "purchase_history": []
+}

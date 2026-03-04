@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P050",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "Nancy recently moved to a rural area and loves experimenting with new recipes using local produce. Her trips are methodically planned, but she occasionally treats herself to premium ingredients.",
+    "weekly_budget": 150.0,
+    "snap_eligible": false,
+    "shopping_motivation": "health & wellness focus",
+    "economic_status": "middle-income",
+    "category_preference": {
+      "FOODS": 0.7,
+      "HOBBIES": 0.1,
+      "HOUSEHOLD": 0.2
+    },
+    "price_sensitivity": "medium",
+    "visit_frequency": "weekly",
+    "preferred_departments": [
+      "FOODS_3",
+      "HOUSEHOLD_1"
+    ],
+    "decision_style": "planned",
+    "brand_loyalty": "high",
+    "promotion_sensitivity": "medium"
+  },
+  "purchase_history": []
+}

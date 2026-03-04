@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P015",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "A tech-savvy gig worker who thrives on spontaneity, often discovering nifty gadgets and novelty foods during his visits. His purchases are impulsively dictated by what catches his eye.",
+    "weekly_budget": 270.0,
+    "snap_eligible": false,
+    "shopping_motivation": "impulse browsing",
+    "economic_status": "discretionary spender",
+    "category_preference": {
+      "FOODS": 0.2,
+      "HOBBIES": 0.6,
+      "HOUSEHOLD": 0.2
+    },
+    "price_sensitivity": "low",
+    "visit_frequency": "2-3 times/week",
+    "preferred_departments": [
+      "HOBBIES_1",
+      "HOUSEHOLD_2"
+    ],
+    "decision_style": "impulsive",
+    "brand_loyalty": "low",
+    "promotion_sensitivity": "low"
+  },
+  "purchase_history": []
+}

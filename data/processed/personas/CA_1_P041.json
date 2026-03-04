@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P041",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "Emma is a college student balancing studies and a part-time job. She makes quick trips to the store between classes, often picking up snacks, ready-to-eat meals, and school supplies.",
+    "weekly_budget": 50.0,
+    "snap_eligible": true,
+    "shopping_motivation": "convenience fill-in",
+    "economic_status": "budget-constrained",
+    "category_preference": {
+      "FOODS": 0.6,
+      "HOBBIES": 0.3,
+      "HOUSEHOLD": 0.1
+    },
+    "price_sensitivity": "high",
+    "visit_frequency": "2-3 times/week",
+    "preferred_departments": [
+      "FOODS_1",
+      "HOBBIES_2"
+    ],
+    "decision_style": "impulsive",
+    "brand_loyalty": "low",
+    "promotion_sensitivity": "high"
+  },
+  "purchase_history": []
+}

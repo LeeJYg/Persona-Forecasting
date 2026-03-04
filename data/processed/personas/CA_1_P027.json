@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P027",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "A work-from-home gig worker who indulges in wellness products to ensure her physical and mental health is top-notch, she enjoys her weekly Walmart trip to explore new health products.",
+    "weekly_budget": 260.0,
+    "snap_eligible": false,
+    "shopping_motivation": "health & wellness focus",
+    "economic_status": "discretionary spender",
+    "category_preference": {
+      "FOODS": 0.3,
+      "HOBBIES": 0.1,
+      "HOUSEHOLD": 0.6
+    },
+    "price_sensitivity": "low",
+    "visit_frequency": "bi-weekly",
+    "preferred_departments": [
+      "HOUSEHOLD_2",
+      "FOODS_1"
+    ],
+    "decision_style": "planned",
+    "brand_loyalty": "medium",
+    "promotion_sensitivity": "low"
+  },
+  "purchase_history": []
+}

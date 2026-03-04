@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P038",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "In the midst of her bustling suburban life as a mother of three, she focuses on maintaining a healthy lifestyle for her family, filling her cart with organic and wholesome products.",
+    "weekly_budget": 180.0,
+    "snap_eligible": false,
+    "shopping_motivation": "health & wellness focus",
+    "economic_status": "upper-middle",
+    "category_preference": {
+      "FOODS": 0.6,
+      "HOBBIES": 0.2,
+      "HOUSEHOLD": 0.2
+    },
+    "price_sensitivity": "medium",
+    "visit_frequency": "2-3 times/week",
+    "preferred_departments": [
+      "FOODS_2",
+      "FOODS_3"
+    ],
+    "decision_style": "planned",
+    "brand_loyalty": "high",
+    "promotion_sensitivity": "medium"
+  },
+  "purchase_history": []
+}

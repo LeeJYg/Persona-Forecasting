@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P045",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "Clara is a stay-at-home mom with a busy family schedule. She plans her shopping trips meticulously around promotions and sales, ensuring she gets the best deals while sticking to her budget.",
+    "weekly_budget": 100.0,
+    "snap_eligible": true,
+    "shopping_motivation": "deal hunting",
+    "economic_status": "lower-middle",
+    "category_preference": {
+      "FOODS": 0.6,
+      "HOBBIES": 0.1,
+      "HOUSEHOLD": 0.3
+    },
+    "price_sensitivity": "high",
+    "visit_frequency": "weekly",
+    "preferred_departments": [
+      "FOODS_3",
+      "HOUSEHOLD_1"
+    ],
+    "decision_style": "deal_seeker",
+    "brand_loyalty": "low",
+    "promotion_sensitivity": "high"
+  },
+  "purchase_history": []
+}

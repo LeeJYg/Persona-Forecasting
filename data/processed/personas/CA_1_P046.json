@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P046",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "Kevin works in the bustling city and enjoys cooking gourmet meals at home after long work hours. Occasionally, he treats himself to fancy kitchen gadgets while minimizing extraneous spending.",
+    "weekly_budget": 200.0,
+    "snap_eligible": false,
+    "shopping_motivation": "special occasion",
+    "economic_status": "middle-income",
+    "category_preference": {
+      "FOODS": 0.4,
+      "HOBBIES": 0.3,
+      "HOUSEHOLD": 0.3
+    },
+    "price_sensitivity": "medium",
+    "visit_frequency": "bi-weekly",
+    "preferred_departments": [
+      "FOODS_1",
+      "HOBBIES_1"
+    ],
+    "decision_style": "planned",
+    "brand_loyalty": "medium",
+    "promotion_sensitivity": "medium"
+  },
+  "purchase_history": []
+}

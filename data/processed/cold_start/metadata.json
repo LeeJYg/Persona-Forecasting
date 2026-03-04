@@ -1,0 +1,21 @@
+{
+  "n_cold_ids": 100,
+  "target_store": "CA_1",
+  "sampling_level": "store_item",
+  "cross_store_info": false,
+  "seed": 42,
+  "category_distribution": {
+    "FOODS": 34,
+    "HOBBIES": 33,
+    "HOUSEHOLD": 33
+  },
+  "tier_distribution": {
+    "Medium": 52,
+    "Low": 24,
+    "High": 24
+  },
+  "warm_train_rows": 53023020,
+  "warm_test_rows": 3494850,
+  "cold_train_rows": 0,
+  "cold_test_rows": 11500
+}

@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P021",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "A young man in his early twenties frequently drops by the Walmart on his way home from college. He is quick to grab what he needs as he plans to avoid any last-minute dashes when studying hits hard at the end of the week.",
+    "weekly_budget": 45.0,
+    "snap_eligible": true,
+    "shopping_motivation": "convenience fill-in",
+    "economic_status": "budget-constrained",
+    "category_preference": {
+      "FOODS": 0.6,
+      "HOBBIES": 0.2,
+      "HOUSEHOLD": 0.2
+    },
+    "price_sensitivity": "high",
+    "visit_frequency": "2-3 times/week",
+    "preferred_departments": [
+      "FOODS_1",
+      "HOUSEHOLD_1"
+    ],
+    "decision_style": "planned",
+    "brand_loyalty": "low",
+    "promotion_sensitivity": "high"
+  },
+  "purchase_history": []
+}

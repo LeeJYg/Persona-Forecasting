@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P035",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "As a suburban parent, he values finding deals for his family. He diligently checks flyers and apps before heading out to ensure he makes the most of every shopping trip.",
+    "weekly_budget": 220.0,
+    "snap_eligible": false,
+    "shopping_motivation": "deal hunting",
+    "economic_status": "upper-middle",
+    "category_preference": {
+      "FOODS": 0.4,
+      "HOBBIES": 0.2,
+      "HOUSEHOLD": 0.4
+    },
+    "price_sensitivity": "high",
+    "visit_frequency": "2-3 times/week",
+    "preferred_departments": [
+      "FOODS_1",
+      "HOUSEHOLD_2"
+    ],
+    "decision_style": "deal_seeker",
+    "brand_loyalty": "low",
+    "promotion_sensitivity": "high"
+  },
+  "purchase_history": []
+}

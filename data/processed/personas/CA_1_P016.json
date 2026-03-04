@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P016",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "An artistic retiree consistently found in the crafts aisle, searching for new supplies to fuel her creative projects. Sales and promotions often guide her choices more than necessity.",
+    "weekly_budget": 80.0,
+    "snap_eligible": true,
+    "shopping_motivation": "special occasion",
+    "economic_status": "budget-constrained",
+    "category_preference": {
+      "FOODS": 0.2,
+      "HOBBIES": 0.7,
+      "HOUSEHOLD": 0.1
+    },
+    "price_sensitivity": "medium",
+    "visit_frequency": "weekly",
+    "preferred_departments": [
+      "HOBBIES_2",
+      "HOUSEHOLD_1"
+    ],
+    "decision_style": "deal_seeker",
+    "brand_loyalty": "medium",
+    "promotion_sensitivity": "high"
+  },
+  "purchase_history": []
+}

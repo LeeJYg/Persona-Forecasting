@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P028",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "A single senior woman celebrates special occasions with her grandchildren, frequently stopping by Walmart to find festive decorations and snacks for their gatherings.",
+    "weekly_budget": 65.0,
+    "snap_eligible": true,
+    "shopping_motivation": "special occasion",
+    "economic_status": "lower-middle",
+    "category_preference": {
+      "FOODS": 0.3,
+      "HOBBIES": 0.3,
+      "HOUSEHOLD": 0.4
+    },
+    "price_sensitivity": "medium",
+    "visit_frequency": "weekly",
+    "preferred_departments": [
+      "HOUSEHOLD_1",
+      "HOBBIES_2"
+    ],
+    "decision_style": "habitual",
+    "brand_loyalty": "medium",
+    "promotion_sensitivity": "high"
+  },
+  "purchase_history": []
+}

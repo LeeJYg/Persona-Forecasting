@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P002",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "A young professional with a busy schedule, he values quick and efficient trips to grab necessities for his downtown apartment. His focus is on minimizing time spent shopping.",
+    "weekly_budget": 110.0,
+    "snap_eligible": false,
+    "shopping_motivation": "convenience fill-in",
+    "economic_status": "lower-middle",
+    "category_preference": {
+      "FOODS": 0.5,
+      "HOBBIES": 0.1,
+      "HOUSEHOLD": 0.4
+    },
+    "price_sensitivity": "high",
+    "visit_frequency": "weekly",
+    "preferred_departments": [
+      "FOODS_3",
+      "HOUSEHOLD_1"
+    ],
+    "decision_style": "planned",
+    "brand_loyalty": "medium",
+    "promotion_sensitivity": "high"
+  },
+  "purchase_history": []
+}

@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P032",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "A retiree enjoying suburban life, she takes pleasure in exploring new hobbies. Her trips to Walmart are leisurely, and she enjoys discovering new craft supplies and gourmet foods that catch her eye.",
+    "weekly_budget": 85.0,
+    "snap_eligible": false,
+    "shopping_motivation": "impulse browsing",
+    "economic_status": "budget-constrained",
+    "category_preference": {
+      "FOODS": 0.3,
+      "HOBBIES": 0.5,
+      "HOUSEHOLD": 0.2
+    },
+    "price_sensitivity": "high",
+    "visit_frequency": "weekly",
+    "preferred_departments": [
+      "HOBBIES_1",
+      "FOODS_2"
+    ],
+    "decision_style": "impulsive",
+    "brand_loyalty": "low",
+    "promotion_sensitivity": "high"
+  },
+  "purchase_history": []
+}

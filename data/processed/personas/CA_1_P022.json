@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P022",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "A retiree in a peaceful suburban area, she enjoys taking leisurely trips to Walmart, where she often gets inspiration for new crafts or gardening projects from her favorite aisles.",
+    "weekly_budget": 75.0,
+    "snap_eligible": true,
+    "shopping_motivation": "hobby pursuit",
+    "economic_status": "lower-middle",
+    "category_preference": {
+      "FOODS": 0.3,
+      "HOBBIES": 0.5,
+      "HOUSEHOLD": 0.2
+    },
+    "price_sensitivity": "medium",
+    "visit_frequency": "weekly",
+    "preferred_departments": [
+      "HOBBIES_1",
+      "HOUSEHOLD_2"
+    ],
+    "decision_style": "impulsive",
+    "brand_loyalty": "medium",
+    "promotion_sensitivity": "medium"
+  },
+  "purchase_history": []
+}

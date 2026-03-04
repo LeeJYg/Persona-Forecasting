@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P004",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "Living in suburbia with two kids, she makes efficient shopping lists for weekly trips, focusing on meals and supplies that cater to her family's needs.",
+    "weekly_budget": 230.0,
+    "snap_eligible": false,
+    "shopping_motivation": "routine replenishment",
+    "economic_status": "upper-middle",
+    "category_preference": {
+      "FOODS": 0.6,
+      "HOBBIES": 0.2,
+      "HOUSEHOLD": 0.2
+    },
+    "price_sensitivity": "medium",
+    "visit_frequency": "weekly",
+    "preferred_departments": [
+      "FOODS_1",
+      "HOUSEHOLD_1"
+    ],
+    "decision_style": "habitual",
+    "brand_loyalty": "high",
+    "promotion_sensitivity": "medium"
+  },
+  "purchase_history": []
+}

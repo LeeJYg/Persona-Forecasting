@@ -1,0 +1,26 @@
+{
+  "persona_id": "CA_1_P020",
+  "store_id": "CA_1",
+  "profile": {
+    "description": "A single city dweller with a knack for tasteful décor, frequently scouting household aisles for trendy pieces. Her purchases are guided by both aesthetic appeal and practical need.",
+    "weekly_budget": 300.0,
+    "snap_eligible": false,
+    "shopping_motivation": "special occasion",
+    "economic_status": "discretionary spender",
+    "category_preference": {
+      "FOODS": 0.15,
+      "HOBBIES": 0.3,
+      "HOUSEHOLD": 0.55
+    },
+    "price_sensitivity": "low",
+    "visit_frequency": "2-3 times/week",
+    "preferred_departments": [
+      "HOUSEHOLD_1",
+      "HOBBIES_2"
+    ],
+    "decision_style": "impulsive",
+    "brand_loyalty": "medium",
+    "promotion_sensitivity": "low"
+  },
+  "purchase_history": []
+}
