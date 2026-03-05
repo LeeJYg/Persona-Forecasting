@@ -107,6 +107,8 @@ class LLMPersonaGenerator:
         llm_client: LLMClient 인스턴스.
     """
 
+    _MAX_PREV_SUMMARIES: int = 20  # 슬라이딩 윈도우 크기 (토큰 비용 제어)
+
     def __init__(self, config: Any, llm_client: LLMClient) -> None:
         personas_cfg = config.experiment.personas
         self.store_id: str = personas_cfg.store_id
@@ -124,51 +126,45 @@ class LLMPersonaGenerator:
             생성된 Persona 리스트.
         """
         total = n_personas if n_personas is not None else self.n_personas
-        system_prompt = _SYSTEM_PROMPT
-
         all_personas: list[Persona] = []
         prev_summaries: list[str] = []
 
-        idx = 1  # 1-indexed persona number
-        batch_idx = 0
-
-        while idx <= total:
-            batch_size = min(self.batch_size, total - idx + 1)
-            end_idx = idx + batch_size - 1
-
+        for batch_idx, start_idx, batch_size in self._batch_indices(total):
+            end_idx = start_idx + batch_size - 1
             logger.info(
                 "배치 %d 생성 중: %s_P%03d ~ %s_P%03d (%d개)",
-                batch_idx, self.store_id, idx, self.store_id, end_idx, batch_size,
+                batch_idx, self.store_id, start_idx, self.store_id, end_idx, batch_size,
             )
 
             user_prompt = self._build_user_prompt(
-                batch_idx=batch_idx,
                 batch_size=batch_size,
-                start_idx=idx,
+                start_idx=start_idx,
                 prev_summaries=prev_summaries,
             )
 
             try:
-                raw = self.llm.generate_json(system_prompt, user_prompt)
-                batch = self._parse_batch(raw, start_idx=idx)
+                raw = self.llm.generate_json(_SYSTEM_PROMPT, user_prompt)
+                batch = self._parse_batch(raw, start_idx=start_idx)
             except Exception as e:
                 logger.error("배치 %d 생성 실패: %s", batch_idx, e)
-                idx += batch_size
-                batch_idx += 1
                 continue
 
-            # 다음 배치 프롬프트를 위한 요약 추출
+            # 슬라이딩 윈도우로 prev_summaries 갱신 (토큰 비용 제어)
             for p in batch:
                 prev_summaries.append(self._summarize(p))
+            prev_summaries = prev_summaries[-self._MAX_PREV_SUMMARIES :]
 
             all_personas.extend(batch)
             logger.info("배치 %d 완료: %d개 생성 (누계: %d개)", batch_idx, len(batch), len(all_personas))
 
-            idx += batch_size
-            batch_idx += 1
-
         logger.info("전체 생성 완료: %d / %d 페르소나", len(all_personas), total)
         return all_personas
+
+    def _batch_indices(self, total: int):
+        """(batch_idx, start_idx, batch_size) 를 순서대로 yield한다."""
+        for batch_idx, start_idx in enumerate(range(1, total + 1, self.batch_size)):
+            batch_size = min(self.batch_size, total - start_idx + 1)
+            yield batch_idx, start_idx, batch_size
 
     # --------------------------------------------------------------------- #
     # 프롬프트 구성                                                            #
@@ -176,7 +172,6 @@ class LLMPersonaGenerator:
 
     def _build_user_prompt(
         self,
-        batch_idx: int,
         batch_size: int,
         start_idx: int,
         prev_summaries: list[str],
@@ -189,7 +184,7 @@ class LLMPersonaGenerator:
 
         lines: list[str] = [
             "Store context:",
-            "A Walmart Supercenter in California (store ID: CA_1) selling groceries (FOODS),",
+            f"A Walmart Supercenter in California (store ID: {self.store_id}) selling groceries (FOODS),",
             "household supplies (HOUSEHOLD), and hobby items (HOBBIES).",
             "",
             "Task:",
@@ -302,22 +297,20 @@ class LLMPersonaGenerator:
             encoding="utf-8",
         )
 
-        # 메타데이터
+        dist = self._compute_distribution(personas)
         meta = {
             "generated_at": datetime.now().isoformat(),
             "n_personas": len(personas),
             "store_id": self.store_id,
-            "distribution": self._compute_distribution(personas),
+            "distribution": dist,
         }
         (out / "metadata.json").write_text(
             json.dumps(meta, ensure_ascii=False, indent=2),
             encoding="utf-8",
         )
 
-        logger.info(
-            "저장 완료: %d개 파일 → %s", len(personas), out.resolve()
-        )
-        self._log_distribution(personas)
+        logger.info("저장 완료: %d개 파일 → %s", len(personas), out.resolve())
+        self._log_distribution(dist)
 
     @staticmethod
     def _compute_distribution(personas: list[Persona]) -> dict[str, Any]:
@@ -334,9 +327,9 @@ class LLMPersonaGenerator:
             "brand_loyalty": dict(Counter(p.brand_loyalty for p in profiles)),
         }
 
-    def _log_distribution(self, personas: list[Persona]) -> None:
-        """생성된 페르소나 분포를 로그에 기록한다."""
-        dist = self._compute_distribution(personas)
+    @staticmethod
+    def _log_distribution(dist: dict[str, Any]) -> None:
+        """분포 dict를 로그에 기록한다."""
         logger.info("=== 페르소나 분포 ===")
         for attr, counts in dist.items():
             logger.info("  %s: %s", attr, counts)

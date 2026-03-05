@@ -26,6 +26,8 @@ m5-forecasting-accuracy/
 # 대용량 전처리 파일 (재생성 가능)
 data/processed/cold_start/warm_train.csv
 data/processed/cold_start/warm_test.csv
+data/processed/cold_start/cold_test.csv
+data/processed/cold_start_data/
 data/processed/m5_train.csv
 data/processed/m5_test.csv
 data/processed/m5_sales_long.csv
@@ -33,3 +35,6 @@ data/processed/m5_sales_long.csv
 # 기존 실험용 합성 페르소나 (구버전)
 data/processed/synthetic_personas/
 data/processed/synthetic_personas_multimodal/
+
+# 실험 결과 (재생성 가능, 대용량 포함)
+experiments/

@@ -49,6 +49,8 @@ VALID_ECONOMIC_STATUS: frozenset[str] = frozenset([
     "discretionary spender",
 ])
 
+CATEGORY_PREFERENCE_TOLERANCE: float = 0.01  # category_preference 합계 허용 오차
+
 
 # --------------------------------------------------------------------------- #
 # 데이터클래스                                                                  #
@@ -81,9 +83,9 @@ class PersonaProfile:
 
         # category_preference 합계
         pref_sum = sum(self.category_preference.values())
-        if abs(pref_sum - 1.0) > 0.01:
+        if abs(pref_sum - 1.0) > CATEGORY_PREFERENCE_TOLERANCE:
             errors.append(
-                f"category_preference 합계={pref_sum:.3f} (1.0 ±0.01 허용)"
+                f"category_preference 합계={pref_sum:.3f} (1.0 ±{CATEGORY_PREFERENCE_TOLERANCE} 허용)"
             )
 
         # 카테고리 키

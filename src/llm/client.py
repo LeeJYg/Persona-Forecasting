@@ -43,6 +43,10 @@ class LLMClient:
         self._client = openai.OpenAI(api_key=api_key)
         logger.info("LLMClient 초기화 완료: model=%s", self.model)
 
+    def _resolve_temperature(self, override: float | None, default: float) -> float:
+        """override가 None이면 default를 반환한다."""
+        return override if override is not None else default
+
     def generate_json(
         self,
         system_prompt: str,
@@ -64,7 +68,7 @@ class LLMClient:
         Raises:
             RuntimeError: max_retries 초과 시.
         """
-        temp = self.generation_temperature if temperature is None else temperature
+        temp = self._resolve_temperature(temperature, self.generation_temperature)
 
         for attempt in range(1, self.max_retries + 1):
             try:
@@ -120,7 +124,7 @@ class LLMClient:
         Returns:
             생성된 텍스트 문자열.
         """
-        temp = self.prediction_temperature if temperature is None else temperature
+        temp = self._resolve_temperature(temperature, self.prediction_temperature)
 
         for attempt in range(1, self.max_retries + 1):
             try:
