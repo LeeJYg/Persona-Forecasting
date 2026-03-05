@@ -38,3 +38,4 @@ data/processed/synthetic_personas_multimodal/
 
 # 실험 결과 (재생성 가능, 대용량 포함)
 experiments/
+lightning_logs/

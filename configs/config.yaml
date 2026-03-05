@@ -113,6 +113,24 @@ experiment:
     regression_alpha: 1.0         # Ridge 정규화 강도 (0이면 cross-validation 자동 선택)
     regression_cv_folds: 5
 
+  # Competitor 모델 설정
+  competitors:
+    output_dir: "experiments/exp006_competitors"
+    seed: 42
+    # k-NN
+    knn_k: 5
+    price_lookback_weeks: 13        # sell_price 조회 기준 직전 주 수
+    # LightGBM
+    lgbm_num_leaves: 31
+    lgbm_learning_rate: 0.05
+    lgbm_n_estimators: 500
+    lgbm_early_stopping_rounds: 50
+    lgbm_tweedie_variance_power: 1.5
+    # LLM Direct
+    llm_direct_model: "gpt-4o-mini"
+    llm_direct_temperature: 0.0
+    llm_direct_max_tokens: 400
+
   # 평가 지표
   metrics:
     - mae

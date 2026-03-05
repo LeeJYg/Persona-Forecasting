@@ -33,11 +33,26 @@ _WRMSSE_LAG = 28
 # ---------------------------------------------------------------------------
 
 
+def evaluate_weekly(
+    cold_test: pd.DataFrame,
+    pred: pd.DataFrame,
+    warm_train: pd.DataFrame,
+    model_name: str = "unknown",
+) -> dict[str, Any]:
+    """주간(weekly) 집계 데이터 전용 evaluate() wrapper.
+
+    cold_test / pred / warm_train이 이미 ISO-week 단위로 집계된 경우 사용.
+    WRMSSE lag=4 (weeks)로 계산.
+    """
+    return evaluate(cold_test, pred, warm_train, model_name=model_name, wrmsse_lag=4)
+
+
 def evaluate(
     cold_test: pd.DataFrame,
     pred: pd.DataFrame,
     warm_train: pd.DataFrame,
     model_name: str = "unknown",
+    wrmsse_lag: int = _WRMSSE_LAG,
 ) -> dict[str, Any]:
     """
     cold_test(실측)와 pred(예측)를 비교해 모든 지표를 계산한다.
@@ -49,6 +64,7 @@ def evaluate(
                    컬럼: item_id, store_id, date, pred_sales (필수).
         warm_train: WRMSSE 스케일 계산용 warm 아이템 학습 데이터.
         model_name: 로깅/결과 키에 사용할 모델 이름.
+        wrmsse_lag: WRMSSE 래그. 일별 데이터=28(기본), 주별 데이터=4.
 
     Returns:
         dict: {
@@ -72,7 +88,7 @@ def evaluate(
 
     result["mae"] = mae(merged["sales"], merged["pred_sales"])
     result["rmse"] = rmse(merged["sales"], merged["pred_sales"])
-    result["wrmsse"] = wrmsse(merged, warm_train)
+    result["wrmsse"] = wrmsse(merged, warm_train, lag=wrmsse_lag)
     result["direction_accuracy"] = direction_accuracy_weekly(merged)
 
     # 카테고리별 세분화
@@ -82,7 +98,7 @@ def evaluate(
         by_cat[str(cat)] = {
             "mae": mae(grp["sales"], grp["pred_sales"]),
             "rmse": rmse(grp["sales"], grp["pred_sales"]),
-            "wrmsse": wrmsse(grp, warm_cat),
+            "wrmsse": wrmsse(grp, warm_cat, lag=wrmsse_lag),
             "direction_accuracy": direction_accuracy_weekly(grp),
         }
     result["by_category"] = by_cat
