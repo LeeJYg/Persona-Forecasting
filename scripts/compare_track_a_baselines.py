@@ -71,36 +71,47 @@ def _parse_runtime_from_log(log_path: Path) -> tuple[str | None, str | None, flo
         return None, None, None
     start_ts, end_ts = timestamps[0], timestamps[-1]
     try:
-        # 날짜 없이 시간만 있으므로 같은 날 가정 (자정 넘기는 경우 미지원)
         fmt = "%H:%M:%S"
         from datetime import datetime as dt
         t0 = dt.strptime(start_ts, fmt)
         t1 = dt.strptime(end_ts, fmt)
         elapsed = (t1 - t0).total_seconds()
+        # 자정을 넘긴 경우 (end < start): 하루를 더함
+        if elapsed < 0:
+            elapsed += 24 * 3600
     except Exception:
         elapsed = None
     return start_ts, end_ts, elapsed
 
 
+def _load_checkpoint_completed(checkpoint_path: Path) -> dict:
+    """체크포인트에서 completed 페르소나 dict를 반환한다. 구버전/신버전 모두 지원."""
+    if not checkpoint_path.exists():
+        return {}
+    try:
+        raw = json.loads(checkpoint_path.read_text(encoding="utf-8"))
+        if "completed" in raw:
+            return raw.get("completed", {})
+        # 구버전 포맷: {pid: {item_id: [...]}}
+        return {k: v for k, v in raw.items() if isinstance(v, dict)}
+    except Exception as e:
+        logger.warning("체크포인트 로드 실패: %s", e)
+        return {}
+
+
 def _count_api_calls_from_checkpoint(checkpoint_path: Path) -> int:
     """체크포인트에서 완료된 페르소나 수 × item_batches × weeks를 추산한다."""
-    if not checkpoint_path.exists():
+    completed = _load_checkpoint_completed(checkpoint_path)
+    if not completed:
         return 0
-    try:
-        ckpt = json.loads(checkpoint_path.read_text(encoding="utf-8"))
-        n_personas = len(ckpt)
-        # 각 페르소나의 아이템 수 / batch_size × n_weeks
-        total = 0
-        for pid, item_preds in ckpt.items():
-            n_items = len(item_preds)
-            n_weeks = max((len(v) for v in item_preds.values()), default=0)
-            # batch_size=10 가정 (config와 일치)
-            n_batches = (n_items + 9) // 10
-            total += n_batches * n_weeks
-        return total
-    except Exception as e:
-        logger.warning("체크포인트 API 콜 수 파싱 실패: %s", e)
-        return 0
+    total = 0
+    for _, item_preds in completed.items():
+        n_items = len(item_preds)
+        n_weeks = max((len(v) for v in item_preds.values()), default=0)
+        # batch_size=10 가정 (config와 일치)
+        n_batches = (n_items + 9) // 10
+        total += n_batches * n_weeks
+    return total
 
 
 def _estimate_cost(n_calls: int) -> dict[str, float]:
@@ -321,10 +332,7 @@ def main() -> None:
     }
     metadata["api_usage"] = {
         "total_api_calls": n_api_calls,
-        "n_completed_personas": len(
-            json.loads(checkpoint_path.read_text(encoding="utf-8"))
-            if checkpoint_path.exists() else {}
-        ),
+        "n_completed_personas": len(_load_checkpoint_completed(checkpoint_path)),
         **cost_info,
     }
     if elapsed_sec is not None:
