@@ -75,7 +75,11 @@ class PersonaPredictor(ForecastModel):
                 raise EnvironmentError(
                     "OPENAI_API_KEY 환경 변수가 설정되지 않았습니다."
                 )
-            self._client = openai.OpenAI(api_key=api_key)
+            import httpx
+            self._client = openai.OpenAI(
+                api_key=api_key,
+                timeout=httpx.Timeout(connect=10.0, read=60.0, write=30.0, pool=10.0),
+            )
         else:
             self._client = None  # type: ignore[assignment]
 
@@ -372,7 +376,11 @@ class PersonaPredictor(ForecastModel):
             persona, item_infos, week_ctx
         )
 
-        for attempt in range(1, self._max_retries + 1):
+        # api_attempt: 실제 API 오류 횟수 (max_retries 적용 대상)
+        # net_retry:   네트워크/timeout 오류 횟수 (무제한 재시도, 0 대체 금지)
+        api_attempt = 0
+        net_retry = 0
+        while api_attempt < self._max_retries:
             try:
                 response = self._client.chat.completions.create(
                     model=self._model,
@@ -386,7 +394,6 @@ class PersonaPredictor(ForecastModel):
                 content = response.choices[0].message.content or "{}"
                 raw = json.loads(content)
                 predictions = raw.get("predictions", {})
-                # 파싱 및 유효성 검증
                 result: dict[str, int] = {}
                 for info in item_infos:
                     val = predictions.get(info.item_id, 0)
@@ -398,21 +405,32 @@ class PersonaPredictor(ForecastModel):
                 return result
 
             except json.JSONDecodeError as e:
-                logger.warning("JSON 파싱 실패 (시도 %d/%d): %s", attempt, self._max_retries, e)
-                if attempt == self._max_retries:
-                    return {info.item_id: 0 for info in item_infos}
+                api_attempt += 1
+                logger.warning("JSON 파싱 실패 (%d/%d): %s", api_attempt, self._max_retries, e)
 
             except openai.RateLimitError:
-                wait = 2 ** attempt
+                # Rate limit은 max_retries 차감 없이 대기 후 재시도
+                wait = min(2 ** (net_retry + 1), 60)
                 logger.warning("Rate limit. %d초 후 재시도...", wait)
                 time.sleep(wait)
 
-            except openai.OpenAIError as e:
-                logger.error("OpenAI 오류 (시도 %d/%d): %s", attempt, self._max_retries, e)
-                if attempt == self._max_retries:
-                    return {info.item_id: 0 for info in item_infos}
-                time.sleep(2)
+            except (openai.APIConnectionError, openai.APITimeoutError) as e:
+                # 네트워크 단절 / timeout: 복구될 때까지 무제한 대기 (데이터 0 오염 방지)
+                net_retry += 1
+                wait = min(30 * net_retry, 300)  # 30 → 60 → 90 → ... → 최대 5분
+                logger.warning(
+                    "네트워크 오류 #%d: %s — %d초 후 재시도 (연결 복구 대기중)...",
+                    net_retry, type(e).__name__, wait,
+                )
+                time.sleep(wait)
 
+            except openai.OpenAIError as e:
+                api_attempt += 1
+                logger.error("OpenAI 오류 (%d/%d): %s", api_attempt, self._max_retries, e)
+                if api_attempt < self._max_retries:
+                    time.sleep(2)
+
+        logger.error("최대 재시도 초과 → 해당 배치 예측 = 0 처리")
         return {info.item_id: 0 for info in item_infos}
 
     # ------------------------------------------------------------------ #
