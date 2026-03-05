@@ -111,7 +111,31 @@ def load_data(config: object) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame,
     cold_test_weekly = _to_weekly(cold_test, "sales")
     warm_train_weekly = _to_weekly(warm_train, "sales")
 
-    logger.info("cold_test_weekly: %d rows (%d items × %d weeks)",
+    # 불완전한 주 제거: 7일 미만인 ISO week (첫 주/마지막 주 경계 효과)
+    days_per_week = (
+        cold_test.assign(
+            iso_year=cold_test["date"].dt.isocalendar().year.astype(int),
+            iso_week=cold_test["date"].dt.isocalendar().week.astype(int),
+        )
+        .groupby(["iso_year", "iso_week"])["date"]
+        .nunique()
+        .reset_index(name="n_days")
+    )
+    complete_weeks = days_per_week[days_per_week["n_days"] == 7][["iso_year", "iso_week"]]
+    n_before = len(cold_test_weekly)
+    cold_test_weekly = cold_test_weekly.merge(complete_weeks, on=["iso_year", "iso_week"])
+    n_dropped = (n_before - len(cold_test_weekly)) // cold_test_weekly["item_id"].nunique()
+    if n_before > len(cold_test_weekly):
+        logger.warning(
+            "불완전한 주 제거: %d주 → %d주 (%d rows 제거). "
+            "제거된 주: %s",
+            n_before // cold_test_weekly["item_id"].nunique() + n_dropped,
+            len(cold_test_weekly) // cold_test_weekly["item_id"].nunique(),
+            n_before - len(cold_test_weekly),
+            days_per_week[days_per_week["n_days"] < 7][["iso_year","iso_week","n_days"]].to_dict("records"),
+        )
+
+    logger.info("cold_test_weekly: %d rows (%d items × %d complete weeks)",
                 len(cold_test_weekly),
                 cold_test_weekly["item_id"].nunique(),
                 cold_test_weekly["iso_week"].nunique())

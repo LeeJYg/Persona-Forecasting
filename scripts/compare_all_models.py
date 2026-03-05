@@ -79,6 +79,25 @@ def main() -> None:
                 target_store, len(warm_train), warm_train["item_id"].nunique())
     cold_test_weekly = _to_weekly(cold_test, "sales")
     warm_train_weekly = _to_weekly(warm_train, "sales")
+
+    # 불완전한 주 제거 (7일 미만 ISO week)
+    days_per_week = (
+        cold_test.assign(
+            iso_year=cold_test["date"].dt.isocalendar().year.astype(int),
+            iso_week=cold_test["date"].dt.isocalendar().week.astype(int),
+        )
+        .groupby(["iso_year", "iso_week"])["date"]
+        .nunique()
+        .reset_index(name="n_days")
+    )
+    complete_weeks = days_per_week[days_per_week["n_days"] == 7][["iso_year", "iso_week"]]
+    incomplete = days_per_week[days_per_week["n_days"] < 7]
+    if not incomplete.empty:
+        logger.warning("불완전한 주 제거: %s", incomplete.to_dict("records"))
+    cold_test_weekly = cold_test_weekly.merge(complete_weeks, on=["iso_year", "iso_week"])
+    logger.info("cold_test_weekly (완전한 주만): %d rows (%d items × %d weeks)",
+                len(cold_test_weekly), cold_test_weekly["item_id"].nunique(),
+                cold_test_weekly["iso_week"].nunique())
     cold_ids = set(cold_test_weekly["item_id"].unique())
 
     all_rows: list[dict] = []

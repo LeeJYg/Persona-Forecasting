@@ -47,7 +47,8 @@ class LightGBMCross(ForecastModel):
         self._model: Any = None
         self._cat_means: dict[str, float] = {}
         self._dept_means: dict[str, float] = {}
-        self._knn_neighbors: dict[str, list[dict]] = {}
+        self._knn_neighbors: dict[str, list[dict]] = {}       # cold-to-warm (predict)
+        self._warm_knn_neighbors: dict[str, list[dict]] = {}  # warm-to-warm (fit)
         self._warm_iso_week_mean: pd.DataFrame | None = None
         self._feature_names: list[str] = []
         self._feature_importances: pd.DataFrame | None = None
@@ -76,10 +77,11 @@ class LightGBMCross(ForecastModel):
     def _build_features(
         self,
         df: pd.DataFrame,
-        warm_train: pd.DataFrame,
+        warm_train: pd.DataFrame | None,
         prices: pd.DataFrame,
         calendar: pd.DataFrame | None,
         fit: bool = False,
+        use_warm_knn: bool = False,
     ) -> pd.DataFrame:
         """feature matrix 생성 (static + time + cross-sectional)."""
         feat = df[["item_id", "cat_id", "dept_id", "iso_year", "iso_week"]].copy()
@@ -97,7 +99,7 @@ class LightGBMCross(ForecastModel):
         feat["snap_count"] = self._build_snap_feature(calendar, feat["iso_week"], feat["iso_year"])
 
         # 집계 features (학습 시 warm 기준, 예측 시 저장된 값 사용)
-        if fit:
+        if fit and warm_train is not None:
             self._cat_means = warm_train.groupby("cat_id")["sales"].mean().to_dict()
             self._dept_means = warm_train.groupby("dept_id")["sales"].mean().to_dict()
         feat["cat_weekly_mean"] = feat["cat_id"].map(self._cat_means).fillna(0.0)
@@ -109,22 +111,65 @@ class LightGBMCross(ForecastModel):
         ]
 
         if self._variant == "proxy_lags":
-            if fit:
+            if fit and warm_train is not None:
                 self._warm_iso_week_mean = (
                     warm_train.groupby(["item_id", "iso_week"])["sales"]
                     .mean()
                     .reset_index()
                     .rename(columns={"sales": "mean_sales"})
                 )
-            feat = self._add_proxy_lag_features(feat)
+            # 학습/검증(warm items): warm-to-warm k-NN, 예측(cold items): cold-to-warm k-NN
+            knn_override = self._warm_knn_neighbors if (fit or use_warm_knn) else None
+            feat = self._add_proxy_lag_features(feat, knn_override=knn_override)
             base_features += ["knn_top3_overall_mean", "knn_top3_same_week_mean"]
 
         self._feature_names = base_features
         return feat[base_features]
 
-    def _add_proxy_lag_features(self, feat: pd.DataFrame) -> pd.DataFrame:
-        """k-NN top-3 이웃의 판매량 proxy 추가."""
-        if not self._knn_neighbors:
+    def _compute_warm_knn_neighbors(
+        self, warm_meta: pd.DataFrame, prices: pd.DataFrame, k: int = 3
+    ) -> dict[str, list[dict]]:
+        """warm items 간 cosine similarity k-NN 계산 (학습 시 proxy feature 용).
+
+        각 warm item에 대해 자신을 제외한 top-k 유사 warm items를 반환.
+        """
+        from sklearn.metrics.pairwise import cosine_similarity
+        from sklearn.preprocessing import MinMaxScaler
+
+        item_ids = warm_meta["item_id"].values
+        cat_dummies = pd.get_dummies(warm_meta["cat_id"]).values
+        dept_dummies = pd.get_dummies(warm_meta["dept_id"]).values
+        item_price = prices.groupby("item_id")["sell_price"].mean()
+        price_arr = (
+            warm_meta["item_id"].map(item_price).fillna(item_price.median()).values.reshape(-1, 1)
+        )
+        price_norm = MinMaxScaler().fit_transform(price_arr)
+        feat_matrix = np.hstack([cat_dummies, dept_dummies, price_norm]).astype(float)
+
+        sims = cosine_similarity(feat_matrix)
+        np.fill_diagonal(sims, -1.0)  # 자기 자신 제외
+
+        warm_knn: dict[str, list[dict]] = {}
+        for i, item_id in enumerate(item_ids):
+            top_k_idx = np.argsort(sims[i])[::-1][:k]
+            warm_knn[str(item_id)] = [
+                {"item_id": str(item_ids[j]), "similarity": float(sims[i, j])}
+                for j in top_k_idx
+            ]
+        logger.info("[%s] warm-to-warm k-NN 계산 완료: %d items, k=%d", self.name, len(item_ids), k)
+        return warm_knn
+
+    def _add_proxy_lag_features(
+        self, feat: pd.DataFrame, knn_override: dict[str, list[dict]] | None = None
+    ) -> pd.DataFrame:
+        """k-NN top-3 이웃의 판매량 proxy 추가.
+
+        Args:
+            knn_override: 사용할 k-NN dict. None이면 self._knn_neighbors (cold-to-warm).
+                          학습 시에는 warm-to-warm k-NN을 넘겨줌.
+        """
+        knn_to_use = knn_override if knn_override is not None else self._knn_neighbors
+        if not knn_to_use:
             feat["knn_top3_overall_mean"] = 0.0
             feat["knn_top3_same_week_mean"] = 0.0
             return feat
@@ -141,7 +186,7 @@ class LightGBMCross(ForecastModel):
         )
 
         def proxy_for_row(row: pd.Series) -> tuple[float, float]:
-            neighbors = self._knn_neighbors.get(row["item_id"], [])
+            neighbors = knn_to_use.get(str(row["item_id"]), [])
             if not neighbors:
                 return 0.0, 0.0
             n_ids = [n["item_id"] for n in neighbors[:3]]
@@ -193,9 +238,13 @@ class LightGBMCross(ForecastModel):
                     f"[{self.name}] proxy_lags requires knn_neighbors_path. "
                     f"Run knn_analog first. Path: {self._knn_neighbors_path}"
                 )
+            # cold-to-warm k-NN (예측 시 사용)
             self._knn_neighbors = json.loads(
                 self._knn_neighbors_path.read_text(encoding="utf-8")
             )
+            # warm-to-warm k-NN (학습 시 proxy feature 용)
+            warm_meta = warm_train[["item_id", "cat_id", "dept_id"]].drop_duplicates("item_id")
+            self._warm_knn_neighbors = self._compute_warm_knn_neighbors(warm_meta, prices, k=3)
 
         # hold-out split (80/20)
         all_items = warm_train["item_id"].unique()
@@ -206,7 +255,8 @@ class LightGBMCross(ForecastModel):
 
         X_train = self._build_features(warm_train[train_mask], warm_train, prices, calendar, fit=True)
         y_train = warm_train[train_mask]["sales"].values
-        X_val = self._build_features(warm_train[val_mask], warm_train, prices, calendar, fit=False)
+        # val split도 warm items이므로 warm-to-warm k-NN 사용 (train/val feature 일관성)
+        X_val = self._build_features(warm_train[val_mask], warm_train, prices, calendar, fit=False, use_warm_knn=True)
         y_val = warm_train[val_mask]["sales"].values
 
         cfg = self._config
