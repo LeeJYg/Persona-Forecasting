@@ -26,22 +26,39 @@
 ### 원본 성능 검증 결과
 
 - 원본 공개 WRMSSE (private LB): **0.637** (Top 5%, Silver Medal, 12-level 평균)
-- 우리 재현 WRMSSE (product-level only): **1.004**
-- 검증 기간: d_1914~d_1941 (evaluation period)
+- 우리 재현 WRMSSE (product-level only, validation period): **1.004**
+- 우리 재현 WRMSSE (12-level 공식, validation period): **0.5435**
+- 검증 기간: d_1914~d_1941 (validation period)
 - 데이터: 30,490 items × 1,664일 (d_250~d_1913)
+- 평가 코드 출처: github.com/Mcompetitions/M5-methods/A4/m5a_eval.py (4위 팀)
 
-**1.004 ≠ 0.637인 이유**: M5 공식 WRMSSE는 12개 집계 수준(item → total)의 평균이다.
-상위 집계(store, state, total)로 갈수록 노이즈가 평균화되어 WRMSSE가 낮아진다.
-우리 product-level 계산(1.004) < Naive product-level(~1.37)으로 **순서 일치** ✓
+**0.5435 ≠ 0.637인 근본 원인: 측정 기간이 다름**
+
+M5 대회 구조:
+- Validation period: d_1914~d_1941 (2016-04-25~05-22) → Public LB 사용
+- Evaluation period: d_1942~d_1969 (2016-05-23~06-19) → Private LB (최종 순위) 사용
+
+stephenllh 코드는 d_1914~d_1941을 예측하고, 이를 그대로 d_1942~d_1969 제출물로 복사.
+공개된 0.637 = **private LB** = (d_1914~d_1941 예측) vs (d_1942~d_1969 실제) 비교.
+d_1942~d_1969 실제 판매 데이터는 Kaggle에서 공개하지 않음 → **0.637 재현 불가**.
+
+우리가 계산한 0.5435 = **validation period** = (d_1914~d_1941 예측) vs (d_1914~d_1941 실제) 비교.
+두 수치는 서로 다른 실제 데이터에 대한 비교이므로 직접 비교 부적절.
 
 | 지표 | Naive | stephenllh | 비고 |
 |------|-------|------------|------|
-| 12-level WRMSSE (M5 공식) | 1.752 | 0.637 | Kaggle 공식 |
+| 12-level WRMSSE (validation, d_1914~d_1941) | - | **0.5435** | 우리 계산 (공식 evaluator 사용) |
+| 12-level WRMSSE (private LB, d_1942~d_1969) | - | 0.637 | Kaggle 공식 (재현 불가) |
 | Product-level WRMSSE (item-own lag-1) | ~1.37 | **1.004** | 우리 계산 |
 
-→ **결론**: 코드 동작 정상 확인, product-level에서도 Naive 대비 27% 개선.
-  0.637 수치를 정확히 재현하려면 12-level WRMSSE 구현 필요하나,
-  논문의 competitor 검증 목적(코드 동작 확인 + 방향성 검증)은 달성됨.
+12-level 레벨별 결과 (validation period):
+- lv1(Total)~lv9(Store×Dept): 0.35~0.60 (집계 수준 높을수록 낮음 — 정상 패턴)
+- lv10(Item)~lv12(Item×Store): 0.81~0.82 (item 수준에서 높음 — 정상 패턴)
+
+→ **결론**: 코드 정상 동작 확인.
+  - 0.5435 (validation) < 0.637 (evaluation/private LB): 예측한 기간보다 복사된 기간에서 오차 커지는 것이 일관됨 ✓
+  - 0.637을 정확히 재현하려면 d_1942~d_1969 실제 데이터 필요 (비공개 → 재현 불가)
+  - 논문의 competitor 검증 목적(코드 동작 확인 + 방향성 검증)은 달성됨 ✓
 
 ---
 
