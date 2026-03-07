@@ -1,0 +1,102 @@
+# Research Project Configuration — FP16 버전
+# INT4 실험(config.yaml)과 동일하되, 양자화 없이 float16 full precision 사용.
+# 사용법: python scripts/run_track_b.py --config configs/config_fp16.yaml
+
+paths:
+  # M5 원본 데이터 (프로젝트 루트 기준 상대 경로)
+  m5_data_dir: "m5-forecasting-accuracy/"
+  sell_prices: "m5-forecasting-accuracy/sell_prices.csv"
+  calendar: "m5-forecasting-accuracy/calendar.csv"
+  sales_train: "m5-forecasting-accuracy/sales_train_evaluation.csv"
+
+  # 전처리 데이터
+  processed_dir: "data/processed/"
+  cold_start_dir: "data/processed/cold_start/"
+
+  # 합성 페르소나
+  personas_dir: "data/processed/personas/"
+
+  # 실험 결과
+  experiments_dir: "experiments/"
+
+  # 로그
+  log_dir: "logs/"
+
+experiment:
+  seed: 42
+
+  # Cold-start 설정
+  cold_start:
+    n_cold_items: 100
+    target_store: "CA_1"
+    sampling_level: "store_item"
+    category_balance: true
+    tier_weights:
+      High: 0.25
+      Medium: 0.50
+      Low: 0.25
+    cross_store_info: false
+
+  # 페르소나 설정
+  personas:
+    n_personas: 50
+    store_id: "CA_1"
+    batch_size: 10
+    output_dir: "experiments/exp003_persona_generation"
+
+  # LLM 설정
+  llm:
+    model: "gpt-4o"
+    prediction_model: "gpt-4o-mini"
+    generation_temperature: 1.0
+    prediction_temperature: 0.3
+    max_retries: 3
+
+  # 베이스라인 설정
+  baselines:
+    price_tier_n_quantiles: 3
+    price_lookback_weeks: 13
+    wrmsse_scale: "category_warm_mean"
+    direction_agg: "weekly"
+    output_dir: "experiments/exp002_cold_start_baselines"
+
+  # Track A
+  track_a:
+    output_dir: "experiments/exp004_track_a_naive"
+    item_batch_size: 10
+    condition: "A"
+    scale_align_method: "post_hoc_mean"
+
+  # Track B: FP16 full precision (양자화 없음)
+  # model_name만 교체해 다른 모델로 전환 가능
+  track_b:
+    output_dir: "experiments/exp005_track_b_embedding_fp16"
+
+    # ── 모델 선택 ──────────────────────────────────────────────────
+    # 32B float16 : ~64 GB → GPU 3~4장 (P40 22.4GB × 3 = 67.2GB)
+    model_name: "Qwen/Qwen2.5-32B-Instruct"
+
+    # ── 임베딩 추출 설정 ───────────────────────────────────────────
+    embedding_batch_size: 2       # FP16 full precision은 VRAM 많이 사용 → 배치 줄임
+    embedding_dtype: "float16"    # FP16 full precision
+
+    # ── 양자화 설정 ────────────────────────────────────────────────
+    quantization:
+      mode: "none"                # 양자화 없음 (FP16 full precision)
+      compute_dtype: "float16"
+      quant_type: "nf4"
+      double_quant: true
+
+    # x_item = mean_pool([emb(persona_i, item) for i in 50 personas])
+    n_personas_for_embedding: 50
+    # 회귀 헤드 학습 설정
+    n_warm_items_for_training: 300
+    regression_alpha: 1.0
+    regression_cv_folds: 5
+
+  # 평가 지표
+  metrics:
+    - mae
+    - rmse
+    - wrmsse
+    - direction_accuracy

@@ -187,9 +187,10 @@ class QwenEmbedder:
 
         if bnb_config is not None:
             load_kwargs["quantization_config"] = bnb_config
-            # 양자화 시 torch_dtype은 compute_dtype과 일치시킴
+            # 4-bit/8-bit 양자화 시 torch_dtype을 지정하면 transformers가
+            # bfloat16 full precision 모델을 먼저 로드한 뒤 양자화해 OOM 발생.
+            # torch_dtype을 전달하지 않으면 bitsandbytes가 직접 4-bit로 로드함.
             compute_dtype_str = str(self._quant_cfg.get("compute_dtype", "bfloat16"))
-            load_kwargs["torch_dtype"] = dtype_map.get(compute_dtype_str, torch.bfloat16)
             logger.info(
                 "Qwen 모델 로드 중: %s [%s 양자화, compute=%s]",
                 self._model_name, quant_mode, compute_dtype_str,
