@@ -87,8 +87,8 @@ experiment:
     #   14B bfloat16 : ~28 GB  → GPU 2개  / batch_size 4 권장  ← 기본값
     #   32B bfloat16 : ~64 GB  → GPU 3개  / batch_size 2 권장
     #   14B 4-bit    : ~7  GB  → GPU 1개  / batch_size 8 권장
-    #   32B 4-bit    : ~16 GB  → GPU 1개  / batch_size 4 권장
-    model_name: "Qwen/Qwen2.5-14B-Instruct"
+    #   32B 4-bit    : ~16 GB  → GPU 1개  / batch_size 4 권장  ← 현재 설정
+    model_name: "Qwen/Qwen2.5-32B-Instruct"
 
     # ── 임베딩 추출 설정 ───────────────────────────────────────────
     embedding_batch_size: 4       # GPU forward pass 배치 크기
@@ -100,7 +100,7 @@ experiment:
     #       "4bit"  → NF4 양자화 (VRAM 최대 절감, 속도 약간 저하)
     #       "8bit"  → LLM.int8() 양자화 (중간 타협점)
     quantization:
-      mode: "none"                # "none" | "4bit" | "8bit"
+      mode: "4bit"                # "none" | "4bit" | "8bit"
       # 4-bit 전용 옵션 (mode="4bit"일 때만 적용)
       compute_dtype: "bfloat16"   # 실제 연산 dtype ("bfloat16" 권장)
       quant_type: "nf4"           # "nf4" | "fp4"
