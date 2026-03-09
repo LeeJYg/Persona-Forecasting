@@ -1,0 +1,67 @@
+# exp007: LightGBM 구현 검증 — M5 표준 세팅, Warm Items
+# 목적: Cold-start 적응 전 LightGBM 자체가 정상 동작하는지 검증
+#        exp006 cold-start 버전의 기반 코드가 warm items에서도 예측력을 보이는지 확인
+# 실행: python scripts/run_exp007_lgbm_verification.py
+# 결과: experiments/exp007_lgbm_verification/
+
+experiment:
+  id: "exp007"
+  name: "LightGBM 구현 검증 (Warm Items)"
+  branch: "verification"
+  date: "2026-03-08"
+
+data:
+  # 입력
+  warm_train_path: "data/processed/cold_start/warm_train.csv"
+  cold_ids_path: "data/processed/cold_start/cold_ids.csv"
+  calendar_path: "m5-forecasting-accuracy/calendar.csv"
+  sell_prices_path: "m5-forecasting-accuracy/sell_prices.csv"
+  # 필터
+  target_store: "CA_1"
+  n_items: 300                    # CA_1 warm items 중 무작위 300개 샘플
+  seed: 42
+  # 기간
+  # warm_train.csv 전체: d_1~d_1798 (2011-01-29 ~ 2015-12-31)
+  # 학습: d_1 ~ d_1770 (2015-10-15까지), 검증: d_1771 ~ d_1798 (마지막 28일)
+  test_days: 28
+
+model:
+  type: "LightGBM"
+  objective: "tweedie"
+  tweedie_variance_power: 1.5
+  num_leaves: 31
+  learning_rate: 0.05
+  n_estimators: 1000
+  early_stopping_rounds: 50
+  seed: 42
+
+features:
+  # M5 표준 feature (stephenllh/m5-accuracy 동일 구성)
+  lag: [7, 28]                    # 자기 이력 lag (warm items이므로 사용 가능)
+  rolling_windows: [7, 28]        # lag_7/28 기반 rolling mean
+  rolling_std: [7]
+  calendar: ["wday", "week", "month", "year"]
+  price: ["sell_price", "price_change_ratio"]
+  cross_sectional: ["cat_weekly_mean", "dept_weekly_mean"]
+
+evaluation:
+  # WRMSSE scale: item-own lag-28 MSE (M5 공식 lag-1 아닌 lag-28 사용)
+  # 이유: 주간 예측이므로 lag-28 (4주) 기준이 적합
+  wrmsse_scale: "item_own_lag28"
+  wrmsse_lag: 28
+  # 결과 저장
+  output_dir: "experiments/exp007_lgbm_verification"
+  save_predictions: true
+  save_feature_importance: true
+
+# ─── 결과 ────────────────────────────────────────────────────────────────────
+# WRMSSE (item-own-lag28): 0.9118
+# MAE:                     1.027
+# RMSE:                    2.145
+# val_MAE (학습 중):       1.048
+# best_iteration:          155
+#
+# 검증 결론:
+#   Naive lag-28 WRMSSE: 1.458, Naive lag-7 WRMSSE: 1.686
+#   LightGBM (0.9118) < Naive (1.458) → 코드 정상 동작 ✓
+#   val_MAE ≈ test_MAE → 과적합 없음 ✓
