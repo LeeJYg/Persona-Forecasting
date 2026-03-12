@@ -1,0 +1,36 @@
+# Exp: 미임베딩 warm 아이템 V3 임베딩 확장 설정
+# 목적: exp011_v3_pipeline의 V3 임베딩을 warm_train 전체 2,649개 아이템으로 확장
+
+paths:
+  warm_train_csv: "data/processed/cold_start/warm_train.csv"
+  sell_prices_csv: "m5-forecasting-accuracy/sell_prices.csv"
+  personas_json: "data/processed/personas/all_personas.json"
+  existing_emb_dir: "experiments/exp011_v3_pipeline/embeddings"
+  output_dir: "experiments/exp011_v3_pipeline/embeddings"
+  checkpoint_dir: "experiments/exp011_v3_pipeline/embeddings/checkpoints_warm_expand"
+  log_dir: "experiments/exp011_v3_pipeline/embeddings"
+
+model:
+  model_name: "Qwen/Qwen2.5-32B-Instruct"
+  cache_dir: "/mnt/sdd1/jylee/huggingface_cache"
+  quantization:
+    mode: "4bit"
+    compute_dtype: "bfloat16"
+    quant_type: "nf4"
+    double_quant: true
+  device_map: "auto"
+  max_length: 512
+  batch_size: 4
+
+extraction:
+  # V3: chat_template + last-token + hidden_states[-2]
+  method: "v3"
+  n_personas: 50
+  condition: "A"                 # structured fields only (description 제외)
+  # 중간 저장 주기 (아이템 단위)
+  save_every_n_items: 20
+  # 가격 조회 기준: 최근 N주
+  price_lookback_weeks: 13
+  target_store: "CA_1"
+
+seed: 42

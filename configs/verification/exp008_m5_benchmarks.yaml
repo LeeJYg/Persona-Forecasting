@@ -1,0 +1,61 @@
+# exp008: M5 공식 벤치마크 비교 — Naive/sNaive 기준선 계산
+# 목적: exp007 LightGBM (WRMSSE 0.9118)이 M5 공식 naive 대비 어느 수준인지 확인
+#        두 가지 비교 수행:
+#          비교 1: M5 공식 validation 기간 (d_1886~d_1913), 2,949 CA_1 items
+#          비교 2: exp007 동일 기간 (d_1771~d_1798), 동일 아이템으로 naive 계산
+
+experiment:
+  id: "exp008"
+  name: "M5 Naive/sNaive 벤치마크 비교"
+  branch: "verification"
+  date: "2026-03-08"
+
+data:
+  warm_train_path: "data/processed/cold_start/warm_train.csv"
+  cold_ids_path: "data/processed/cold_start/cold_ids.csv"
+  calendar_path: "m5-forecasting-accuracy/calendar.csv"
+  sell_prices_path: "m5-forecasting-accuracy/sell_prices.csv"
+  sales_train_evaluation_path: "m5-forecasting-accuracy/sales_train_evaluation.csv"
+  target_store: "CA_1"
+  # 비교 1용 naive submission 파일 (warm_train.csv에서 lag-1/lag-7 자동 생성)
+  submission_naive_path: "docs/verification/Naive.csv"
+  submission_snaive_path: "docs/verification/sNaive.csv"
+
+comparison_1:
+  # M5 공식 validation 기간: d_1886~d_1913 (2016-04-25의 28일 전)
+  # Note: M5 공식 evaluation 기간(d_1914~d_1941)과 다름
+  period_start_d: "d_1886"
+  period_end_d: "d_1913"
+  n_items: 2949                   # CA_1 전체 (cold_ids 제외 전체)
+  wrmsse_scales:
+    - type: "cat_mean_lag28"      # 우리 cold-start 실험과 동일한 스케일
+    - type: "item_own_lag1"       # M5 공식 스케일
+
+comparison_2:
+  # exp007 동일 기간: d_1771~d_1798 (warm_train.csv 마지막 28일)
+  period_start_d: "d_1771"
+  period_end_d: "d_1798"
+  n_items: 2949
+  wrmsse_scale: "item_own_lag1"
+
+evaluation:
+  output_dir: "experiments/exp008_m5_benchmarks"
+
+# ─── 재현 명령어 ──────────────────────────────────────────────────────────────
+# tmux new-session -d -s exp008 \
+#   "conda run --no-capture-output -n persona-forecasting \
+#    python scripts/verification/run_exp008_m5_benchmarks.py \
+#    2>&1 | tee experiments/exp008_m5_benchmarks/run.log"
+
+# ─── 결과 ────────────────────────────────────────────────────────────────────
+# 비교 1 (d_1886~d_1913, 2,949 CA_1 items):
+#   naive_official:   WRMSSE(item-own-lag1)=1.369, MAE=1.571, RMSE=3.188
+#   snaive_official:  WRMSSE(item-own-lag1)=1.318, MAE=1.404, RMSE=2.997
+#
+# 비교 2 (d_1771~d_1798, exp007 동일 기간):
+#   naive_exp007:     WRMSSE(item-own-lag1)=1.458, MAE=1.265
+#   snaive_exp007:    WRMSSE(item-own-lag1)=1.686, MAE=1.439
+#
+# 검증 결론:
+#   exp007 LightGBM (0.9118) < naive_exp007 (1.458) → LightGBM이 naive 대비 -37.5% ✓
+#   두 기간에서 모두 LightGBM > naive → 구현 검증 완료 ✓

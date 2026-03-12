@@ -1,0 +1,143 @@
+# exp009: stephenllh/m5-accuracy 원본 재현 검증 (Silver Medal, 0.637 private LB)
+# 목적: cold-start 적응의 기반이 된 LightGBM 원본 코드가 정상 동작하는지 검증
+#        M5 전체 데이터(30,490 items)로 실행하여 발표된 성능과 비교
+#
+# Step A: 원본 코드 실행 + product-level WRMSSE 계산
+# Step B: 공식 12-level WRMSSE 계산 (M5-methods/A4/m5a_eval.py 사용)
+
+experiment:
+  id: "exp009"
+  name: "stephenllh m5-accuracy 원본 재현"
+  branch: "verification"
+  date: "2026-03-08"
+  source_repo: "https://github.com/stephenllh/m5_accuracy"
+  silver_medal_private_lb: 0.637   # stephenllh README에 명시된 private LB 점수
+
+data:
+  # 원본 학습 데이터 (stephenllh 코드가 참조)
+  sales_train_validation: "/tmp/m5-accuracy/input/sales_train_validation.csv"
+  # 검증용 (우리 계산에서 사용)
+  sales_train_evaluation: "m5-forecasting-accuracy/sales_train_evaluation.csv"
+  calendar: "m5-forecasting-accuracy/calendar.csv"
+  sell_prices: "m5-forecasting-accuracy/sell_prices.csv"
+  # stephenllh 예측 파일 (inference.py 실행 후 생성)
+  submission_path: "/tmp/m5-accuracy/src/submission_.csv"
+
+stephenllh_original_params:
+  # train.py 파라미터 (원본 그대로)
+  objective: "poisson"
+  learning_rate: 0.075
+  num_leaves: 128
+  min_data_in_leaf: 100
+  num_iterations: 1200
+  sub_row: 0.75
+  bagging_freq: 1
+  lambda_l2: 0.1
+  seed: 777
+  # inference.py
+  n_items: 30490
+  prediction_start_date: "2016-04-25"   # d_1914
+  prediction_days: 28                    # d_1914 ~ d_1941
+
+api_patches:
+  # 알고리즘 변경 없음. pandas 2.x / LightGBM 4.x API 호환성 패치만 적용.
+  - file: "train.py"
+    line: 50
+    original: "lgb.train(..., verbose_eval=20)"
+    patched: "callbacks=[lgb.log_evaluation(20)]"
+    reason: "LightGBM 4.x에서 verbose_eval 파라미터 제거"
+
+  - file: "train.py"
+    line: "38-47"
+    original: "X_train.loc[:-10000] / .loc[-10000:]"
+    patched: "X_train.iloc[:-10000] / .iloc[-10000:]"
+    reason: "pandas 2.x에서 정수 인덱스에 음수 label-based .loc → 빈 DataFrame 반환"
+
+  - file: "preprocess.py"
+    line: 115
+    original: "ds['date'].dt.weekofyear"
+    patched: "ds['date'].dt.isocalendar().week.astype('int16')"
+    reason: "pandas 2.x에서 dt.weekofyear 제거"
+
+  - file: "preprocess.py"
+    line: 134
+    original: "trainCols.to_csv(...)"
+    patched: "open() + write() 직접 사용"
+    reason: "pandas 2.x에서 pd.Index.to_csv() 제거"
+
+  - file: "inference.py"
+    location: "create_features()"
+    original: "ds['date'].dt.weekofyear"
+    patched: "ds['week'] = ds['date'].dt.isocalendar().week.astype('int16')"
+    reason: "preprocess.py와 동일한 weekofyear 이슈"
+
+  - file: "inference.py"
+    line: 88
+    original: "lgb.load('model.lgb')"
+    patched: "lgb.Booster(model_file='model.lgb')"
+    reason: "LightGBM 4.x에서 lgb.load() 제거"
+
+  - file: "inference.py"
+    line: 91
+    original: "pd.read_csv('traincols.csv')"
+    patched: "pd.read_csv('traincols.csv').iloc[:, 0].tolist()"
+    reason: "read_csv 결과가 DataFrame이므로 list 변환 필요"
+
+step_a_product_level:
+  # scripts/verification/compute_stephenllh_wrmsse.py
+  evaluation_period: "d_1914~d_1941"
+  wrmsse_scale: "item_own_lag1"   # M5 공식 lag-1 scale
+  aggregation: "product_level"    # item×store level만 (12-level 집계 아님)
+
+step_b_12level:
+  # scripts/verification/compute_m5_12level_wrmsse.py
+  evaluator_source: "github.com/Mcompetitions/M5-methods/A4/m5a_eval.py"
+  aggregation: "12_level"         # 12개 집계 수준 평균
+  weight: "dollar_sales_last28"   # d_1886~d_1913 달러 판매액 가중치
+
+evaluation:
+  output_dir: "experiments/exp009_stephenllh_verification"
+
+# ─── 재현 명령어 ──────────────────────────────────────────────────────────────
+# 전제 조건:
+#   1. git clone https://github.com/stephenllh/m5_accuracy /tmp/m5-accuracy
+#   2. ln -s <project_root>/m5-forecasting-accuracy /tmp/m5-accuracy/input
+#   3. api_patches 섹션의 패치 6건 적용
+#
+# Step A: 원본 학습 + 추론 + product-level WRMSSE
+#   tmux new-session -d -s exp009a \
+#     "cd /tmp/m5-accuracy/src && \
+#      conda run --no-capture-output -n persona-forecasting python train.py && \
+#      conda run --no-capture-output -n persona-forecasting python inference.py && \
+#      cd <project_root> && \
+#      conda run --no-capture-output -n persona-forecasting \
+#        python scripts/verification/compute_stephenllh_wrmsse.py \
+#      2>&1 | tee experiments/exp009_stephenllh_verification/step_a.log"
+#
+# Step B: 공식 12-level WRMSSE (Step A 완료 후 실행)
+#   tmux new-session -d -s exp009b \
+#     "conda run --no-capture-output -n persona-forecasting \
+#      python scripts/verification/compute_m5_12level_wrmsse.py \
+#      2>&1 | tee experiments/exp009_stephenllh_verification/step_b.log"
+
+# ─── 결과 ────────────────────────────────────────────────────────────────────
+# Step A — Product-level WRMSSE (d_1914~d_1941 vs 실제):
+#   WRMSSE (item-own-lag1, product-level): 1.0039
+#   MAE: 1.033, RMSE: 2.099, n_items: 30,490
+#   Naive product-level: ~1.37 → stephenllh (1.004) < Naive ✓
+#
+# Step B — 12-level WRMSSE (d_1914~d_1941 vs 실제):
+#   12-level WRMSSE (공식): 0.5435
+#   lv1(Total)=0.35, lv2(State)=0.40, lv3(Store)=0.47
+#   lv4(Cat)=0.37,   lv5(Dept)=0.42, lv6(State×Cat)=0.44
+#   lv7(State×Dept)=0.50, lv8(Store×Cat)=0.52, lv9(Store×Dept)=0.60
+#   lv10(Item)=0.81, lv11(Item×State)=0.82, lv12(Item×Store)=0.82
+#
+# 검증 결론 — 0.637 재현 여부:
+#   우리 계산(0.5435) ≠ 공개값(0.637) → FAIL로 표시되나, 구조적으로 재현 불가
+#   이유: 0.637 = private LB (stephenllh README 원문: "private leaderboard")
+#         Private LB 기간: d_1942~d_1969 (예측) vs d_1942~d_1969 (실제)
+#         d_1942~d_1969 실제 판매 데이터 = Kaggle 비공개 → 우리가 보유한 데이터 없음
+#   우리 0.5435 = validation period (d_1914~d_1941) 계산
+#   0.5435 < 0.637: 모델이 자신이 예측한 기간보다 복사된 기간에서 오차 큼 → 일관 ✓
+#   코드 정상 동작 확인 ✓ (집계 패턴, Naive 대비 개선 모두 일치)

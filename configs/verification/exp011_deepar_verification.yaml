@@ -1,0 +1,51 @@
+# exp011: DeepAR Electricity 재현 검증
+# 목적: DeepAR 원본 논문(Salinas et al. 2020)의 electricity 벤치마크 재현
+#        GluonTS 0.16.2 공식 구현으로 CRPS/ND/NRMSE 재현 여부 확인
+#
+# 환경: aias-x86 (CPU 전용, GluonTS 0.16.2)
+#   conda activate deepar-verification  (또는 환경명 확인 후 수정)
+#
+# 실행: scripts/verification/run_exp011_deepar_verification.py
+
+experiment:
+  id: "exp011"
+  name: "DeepAR Electricity 재현 검증"
+  branch: "verification"
+  date: "TBD"
+  source: "Salinas et al. (2020), GluonTS DeepAR"
+  environment: "aias-x86"
+
+data:
+  # GluonTS 내장 electricity 데이터셋 사용
+  dataset: "electricity"
+  prediction_length: 24
+  freq: "1H"
+  num_test_windows: 7             # 논문 설정
+
+model:
+  name: "DeepAR"
+  gluonts_version: "0.16.2"
+  # 논문 하이퍼파라미터 (Salinas et al. 2020 Table 4)
+  num_layers: 2
+  num_cells: 40
+  dropout_rate: 0.1
+  epochs: 100
+  batch_size: 32
+  num_samples: 100                # 평가 시 샘플 수
+
+evaluation:
+  metrics: ["CRPS", "ND", "NRMSE"]
+  # 논문 기준값 (electricity, Table 3)
+  target_nd: 0.038
+  target_nrmse: 0.095
+  tolerance_pct: 10               # ±10% 허용
+  output_dir: "experiments/exp011_deepar_verification"
+
+# ─── 재현 명령어 (aias-x86에서 실행) ─────────────────────────────────────────
+# tmux new-session -d -s exp011 \
+#   "conda run --no-capture-output -n deepar-verification \
+#    python scripts/verification/run_exp011_deepar_verification.py \
+#    2>&1 | tee experiments/exp011_deepar_verification/run.log"
+
+# ─── 결과 ────────────────────────────────────────────────────────────────────
+# (실행 후 기입)
